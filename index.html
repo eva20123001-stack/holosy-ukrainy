@@ -5,112 +5,133 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#101b2c">
-<title>Голоси України | Інтерактивний квест</title>
+<title>Голоси України | Квест</title>
+
 <style>
 :root {
   --navy:#101b2c;
-  --navy2:#1b2c43;
-  --cream:#f4efe5;
+  --navy2:#203b59;
+  --cream:#f5f0e6;
   --paper:#fffdf8;
   --gold:#c9a76a;
-  --gold2:#ead9b5;
+  --gold-light:#ead9b5;
   --blue:#7898bd;
-  --muted:#8a8d91;
-  --line:rgba(201,167,106,.3);
+  --muted:#777d84;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
   margin:0;
   min-height:100vh;
   color:var(--cream);
-  background:
-    radial-gradient(ellipse at 12% 4%,rgba(85,119,158,.22),transparent 38%),
-    radial-gradient(ellipse at 90% 75%,rgba(201,167,106,.09),transparent 35%),
-    var(--navy);
   font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(ellipse at 10% 10%,rgba(120,152,189,.2),transparent 32%),
+    radial-gradient(ellipse at 90% 75%,rgba(201,167,106,.12),transparent 30%),
+    var(--navy);
 }
 header{
   position:relative;
   overflow:hidden;
-  padding:66px 20px 54px;
+  min-height:310px;
+  padding:55px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  background:linear-gradient(135deg,#0b1626,#203a59);
-  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(130deg,rgba(8,17,30,.96),rgba(34,62,91,.94)),
+    repeating-linear-gradient(135deg,transparent 0 25px,rgba(255,255,255,.03) 25px 26px);
+  border-bottom:1px solid rgba(201,167,106,.5);
 }
 header:before,header:after{
   content:"";
   position:absolute;
-  width:260px;height:260px;
-  border:1px solid rgba(201,167,106,.17);
+  width:280px;height:280px;
+  border:1px solid rgba(201,167,106,.22);
   border-radius:50%;
-  pointer-events:none;
 }
-header:before{top:-175px;left:-90px}
-header:after{right:-110px;bottom:-190px;width:340px;height:340px}
+header:before{left:-170px;top:-160px}
+header:after{right:-170px;bottom:-190px;width:360px;height:360px}
 .eyebrow{
-  position:relative;z-index:1;
-  color:var(--gold2);
-  font:11px Arial,sans-serif;
+  position:relative;
+  z-index:1;
+  color:var(--gold-light);
+  font:10px Arial,sans-serif;
   letter-spacing:4px;
   text-transform:uppercase;
 }
 header h1{
-  position:relative;z-index:1;
-  margin:17px 0 10px;
-  font-size:clamp(36px,8vw,61px);
+  position:relative;
+  z-index:1;
+  margin:18px 0 12px;
+  font-size:clamp(42px,9vw,76px);
   font-weight:500;
-  letter-spacing:1px;
+  letter-spacing:2px;
+  text-shadow:0 8px 30px #0006;
 }
 header p{
-  position:relative;z-index:1;
-  margin:0;
+  position:relative;
+  z-index:1;
   color:#d8d1c3;
-  font:13px Arial,sans-serif;
-  letter-spacing:2px;
+  font:11px Arial,sans-serif;
+  letter-spacing:3px;
 }
 main{
-  width:min(760px,100%);
-  margin:38px auto;
-  padding:0 16px;
+  width:min(900px,100%);
+  margin:40px auto 60px;
+  padding:0 15px;
 }
 .card{
   position:relative;
   overflow:hidden;
-  padding:clamp(23px,5vw,42px);
+  padding:clamp(25px,6vw,52px);
   margin-bottom:22px;
   color:var(--navy);
   background:var(--paper);
-  border:1px solid rgba(201,167,106,.48);
-  border-radius:4px;
-  box-shadow:0 24px 70px rgba(0,0,0,.23);
+  border:1px solid rgba(201,167,106,.55);
+  border-radius:7px;
+  box-shadow:0 25px 75px #0005;
   animation:appear .45s ease both;
 }
 .card:before{
   content:"";
-  position:absolute;top:0;left:0;width:100%;height:4px;
-  background:linear-gradient(90deg,var(--gold),#f1e4c8,var(--gold));
+  position:absolute;
+  top:0;left:0;width:100%;height:5px;
+  background:linear-gradient(90deg,var(--gold),#f5e8c9,var(--gold));
 }
+.card:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(201,167,106,.17);
+  border-radius:3px;
+  pointer-events:none;
+}
+.card>*{position:relative;z-index:1}
 @keyframes appear{
   from{opacity:0;transform:translateY(12px)}
   to{opacity:1;transform:translateY(0)}
 }
-.eyebrow-dark{
-  color:#947448;
+.kicker{
+  display:inline-block;
+  padding:8px 12px;
+  color:#80633b;
+  background:#faf5e9;
+  border:1px solid #d8c59f;
   font:10px Arial,sans-serif;
-  font-weight:bold;
-  letter-spacing:2.5px;
+  letter-spacing:2px;
   text-transform:uppercase;
 }
 h2{
-  margin:12px 0 22px;
+  margin:17px 0 20px;
   color:var(--navy);
-  font-size:clamp(27px,5vw,38px);
+  font-size:clamp(29px,6vw,46px);
   font-weight:500;
-  line-height:1.2;
+  line-height:1.18;
 }
 h3{
-  margin-top:27px;
+  margin-top:28px;
   color:#334d6b;
   font-size:21px;
   font-weight:500;
@@ -119,10 +140,65 @@ p{font-size:16px;line-height:1.8}
 .small{
   color:#8b795b;
   font:10px Arial,sans-serif;
-  font-weight:bold;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.ornament{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin:24px 0;
+  color:#a98750;
+  font:10px Arial,sans-serif;
+  letter-spacing:3px;
+  text-align:center;
+}
+.ornament:before,.ornament:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:#d9c9aa;
+}
+.hero-text{
+  max-width:670px;
+  color:#4a5664;
+  font-size:17px;
+}
+.tiles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:27px 0;
+}
+.tile{
+  padding:18px 14px;
+  background:#f4f0e7;
+  border:1px solid #e5dccb;
+  border-radius:4px;
+}
+.tile strong{
+  display:block;
+  margin-bottom:7px;
+  color:#987748;
+  font-size:28px;
+}
+.tile span{
+  color:#68717a;
+  font:11px/1.5 Arial,sans-serif;
+}
+.mission{
+  padding:21px;
+  color:var(--cream);
+  background:var(--navy2);
+  border-left:3px solid var(--gold);
+}
+.mission b{
+  color:var(--gold-light);
+  font:10px Arial,sans-serif;
   letter-spacing:2px;
   text-transform:uppercase;
 }
+.mission p{margin-bottom:0}
 .btn,button{
   display:inline-block;
   padding:14px 21px;
@@ -130,87 +206,160 @@ p{font-size:16px;line-height:1.8}
   color:var(--cream);
   background:var(--navy);
   border:1px solid var(--gold);
-  border-radius:2px;
+  border-radius:4px;
   font:600 13px Arial,sans-serif;
   letter-spacing:1px;
   text-align:center;
   text-decoration:none;
   cursor:pointer;
-  transition:.22s ease;
+  transition:.2s ease;
 }
 .btn:hover,button:hover{
   color:var(--navy);
-  background:var(--gold2);
+  background:var(--gold-light);
   transform:translateY(-2px);
 }
+.secondary{
+  color:var(--navy);
+  background:transparent;
+  border-color:#bca477;
+}
 button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.progress-wrap{margin:22px 0 28px}
+.progress-info{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#8b795b;
+  font:10px Arial,sans-serif;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.progress{
+  height:7px;
+  margin-top:10px;
+  overflow:hidden;
+  background:#e9e3d8;
+  border-radius:20px;
+}
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,#9c7945,#e2c58d);
+  border-radius:20px;
+  transition:width .3s;
+}
+.question{
+  padding:18px 0;
+  border-bottom:1px solid #e8e2d7;
+}
+.question b{
+  display:block;
+  margin-bottom:12px;
+  color:#263b54;
+  font-size:17px;
+  line-height:1.5;
+}
 .option{
-  display:block;width:100%;
-  padding:15px 17px;margin:10px 0;
-  color:#27374b;background:#f4f1ea;
-  border:1px solid #e4ded1;border-radius:2px;
+  display:block;
+  width:100%;
+  padding:15px 17px;
+  margin:9px 0;
+  color:#27374b;
+  background:#f4f1ea;
+  border:1px solid #e4ded1;
+  border-radius:4px;
   font:14px/1.55 Arial,sans-serif;
-  letter-spacing:0;text-align:left;
+  letter-spacing:0;
+  text-align:left;
 }
 .option:hover{color:var(--navy);background:#eee5d4;border-color:var(--gold)}
-.option.selected{color:var(--navy);background:#e8dfce;border-color:var(--gold)}
-.question{padding:18px 0;border-bottom:1px solid #e8e2d7}
-.question b{display:block;margin-bottom:12px;color:#263b54;font-size:17px;line-height:1.5}
+.option.selected{
+  color:var(--navy);
+  background:#e8dfce;
+  border-color:var(--gold);
+  box-shadow:inset 3px 0 var(--gold);
+}
 .fact{
-  padding:18px 20px;margin:22px 0;
-  color:#34475c;background:#edf1f3;
+  padding:18px 20px;
+  margin:22px 0;
+  color:#34475c;
+  background:#edf1f3;
   border-left:3px solid var(--blue);
   line-height:1.8;
 }
 .hint{
-  padding:20px;margin-top:20px;
-  color:#463b29;background:#f4eddf;
+  padding:20px;
+  margin-top:20px;
+  color:#463b29;
+  background:#f4eddf;
   border-left:3px solid var(--gold);
-  font-size:15px;line-height:1.8;
+  line-height:1.8;
 }
 .letter{
-  padding:12px 0;color:#9b7740;
-  font-size:clamp(35px,8vw,49px);
-  font-weight:bold;letter-spacing:8px;text-align:center;
-}
-.progress-wrap{margin:20px 0 25px}
-.progress-info{
-  display:flex;justify-content:space-between;gap:10px;
-  color:#8b795b;font:10px Arial,sans-serif;
-  letter-spacing:1.5px;text-transform:uppercase;
-}
-.progress{
-  height:5px;margin-top:10px;background:#e9e3d8;
-}
-.progress-fill{
-  height:100%;background:linear-gradient(90deg,#9c7945,#d9bd87);
-  transition:width .3s ease;
+  padding:12px 0;
+  color:#9b7740;
+  font-size:45px;
+  font-weight:bold;
+  letter-spacing:8px;
+  text-align:center;
 }
 input{
-  width:100%;padding:16px;margin:12px 0;
-  color:var(--navy);background:white;
-  border:1px solid #d8cbb5;border-radius:2px;
-  font:16px Arial,sans-serif;
+  width:100%;
+  padding:16px;
+  margin:12px 0;
+  color:var(--navy);
+  background:white;
+  border:1px solid #d8cbb5;
+  border-radius:3px;
+  font:17px Arial,sans-serif;
 }
-input:focus{outline:2px solid rgba(201,167,106,.2);border-color:var(--gold)}
-hr{height:1px;margin:28px 0;background:var(--line);border:0}
+input:focus{outline:2px solid #c9a76a55;border-color:var(--gold)}
+.scrambled{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:24px 0;
+}
+.scrambled span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:43px;height:49px;
+  color:#f8f0df;
+  background:linear-gradient(145deg,#263f5b,#101b2c);
+  border:1px solid var(--gold);
+  border-radius:4px;
+  font-size:24px;
+  box-shadow:0 4px 10px #0002;
+}
+.bonus{
+  padding:18px 20px;
+  margin:15px 0;
+  background:#f4eddf;
+  border-left:3px solid var(--gold);
+}
+.bonus h3{margin:8px 0}
 footer{
-  padding:32px 18px;color:#c6b99f;
-  border-top:1px solid var(--line);
-  font:11px Arial,sans-serif;letter-spacing:2px;text-align:center;
+  padding:32px 18px;
+  color:#c6b99f;
+  border-top:1px solid rgba(201,167,106,.3);
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  text-align:center;
 }
-.final-bonus{
-  padding:17px 19px;margin:15px 0;
-  background:#f4eddf;border-left:3px solid var(--gold);
-}
-@media(max-width:520px){
-  header{padding:54px 16px 45px}
-  main{margin:24px auto;padding:0 12px}
-  .card{padding:24px 19px}
+@media(max-width:560px){
+  header{min-height:270px}
+  main{margin:25px auto 45px}
+  .card{padding:25px 19px}
+  .tiles{grid-template-columns:1fr}
+  .tile{display:flex;align-items:center;gap:14px}
+  .tile strong{margin:0;min-width:45px}
   .letter{letter-spacing:5px}
 }
 </style>
 </head>
+
 <body>
 <header>
   <div class="eyebrow">Інтерактивний шкільний квест</div>
@@ -220,24 +369,26 @@ footer{
 
 <main id="app"></main>
 
-<footer>СЛАВА УКРАЇНІ · СЛАВА ЗБРОЙНИМ СИЛАМ УКРАЇНИ</footer>
+<footer>
+  СЛАВА УКРАЇНІ · СЛАВА ЗБРОЙНИМ СИЛАМ УКРАЇНИ
+</footer>
 
 <script>
 const stages = [
 {
 title:"Голоси України",
-type:"video",
 url:"https://youtube.com/watch?v=c7o1kmGWYNc&feature=shared",
 letter:"С",
 questions:[
-{q:"Яка ідея найкраще об'єднує тему цього квесту?",a:["Особиста перемога важливіша за спільну мету","Відповідальність і підтримка мають значення для всієї країни","Історія не впливає на сучасність"],correct:1},
-{q:"Що найкраще передає вдячність людям, які захищають державу?",a:["Увага, повага та конкретна підтримка","Лише святкові привітання без зацікавлення","Забування про їхню службу"],correct:0}
+["Яка ідея найкраще об'єднує тему цього квесту?",
+["Особиста перемога важливіша за спільну мету","Відповідальність і підтримка мають значення для всієї країни","Історія не впливає на сучасність"],1],
+["Що найкраще передає вдячність людям, які захищають державу?",
+["Увага, повага та конкретна підтримка","Лише святкові привітання без зацікавлення","Забування про їхню службу"],0]
 ],
 hint:"Там, де тиша допомагає почути голоси минулого, а сторінки зберігають цілі світи. Шукай місце читання на другому поверсі."
 },
 {
 title:"Від козацької слави до сучасного війська",
-type:"text",
 letter:"И",
 content:`Українське військо має глибоке історичне коріння. Ще задовго до створення сучасних Збройних Сил України наші предки об’єднувалися, щоб захищати рідну землю, свої домівки та право бути вільними.
 
@@ -252,58 +403,63 @@ content:`Українське військо має глибоке істори�
 Історія українського війська вчить нас важливої речі: сила не лише в мужності окремої людини, а й у довірі, відповідальності та єдності всього народу.`,
 fact:"Запорозька Січ мала особливу систему самоврядування. Важливі питання козаки вирішували на загальних радах.",
 questions:[
-{q:"Чому Запорозька Січ була важливою для козацького життя?",a:["Там ухвалювали спільні рішення та формували військові традиції","Вона була лише місцем торгівлі","Там навчали виключно іноземних мов"],correct:0},
-{q:"Яка риса найбільше пов'язує козацькі традиції із сучасним військом у тексті?",a:["Прагнення до особистої слави","Відмова від спільних рішень","Взаємопідтримка та відповідальність"],correct:2}
+["Чому Запорозька Січ була важливою для козацького життя?",
+["Там ухвалювали спільні рішення та формували військові традиції","Вона була лише місцем торгівлі","Там навчали виключно іноземних мов"],0],
+["Яка риса найбільше пов'язує козацькі традиції із сучасним військом у тексті?",
+["Прагнення до особистої слави","Відмова від спільних рішень","Взаємопідтримка та відповідальність"],2]
 ],
 hint:"Наступна сторінка нашої історії чекає там, де вивчають минуле, досліджують події та постаті. Піднімайся на третій поверх."
 },
 {
 title:"Відео про українських захисників",
-type:"video",
 url:"https://youtu.be/b8ssbp3IjVc?si=LzyJuRuue3GOlt0W",
 letter:"Л",
 questions:[
-{q:"Що допомагає глядачеві краще зрозуміти головну думку відео?",a:["Лише тривалість ролика","Уважність до його образів, слів і послідовності подій","Кількість переглядів"],correct:1},
-{q:"Який висновок відповідає темі підтримки українських захисників?",a:["Внесок кожної людини в підтримку може мати значення","Допомога потрібна лише під час свят","Підтримка не має значення для суспільства"],correct:0}
+["Що допомагає глядачеві краще зрозуміти головну думку відео?",
+["Лише тривалість ролика","Уважність до його образів, слів і послідовності подій","Кількість переглядів"],1],
+["Який висновок відповідає темі підтримки українських захисників?",
+["Внесок кожної людини в підтримку може мати значення","Допомога потрібна лише під час свят","Підтримка не має значення для суспільства"],0]
 ],
 hint:"Час перевірити спритність і командний дух. Знайди місце, де уроки фізкультури перетворюються на рух."
 },
 {
 title:"Історія про Святого Миколая та військових",
-type:"article",
 url:"https://thepage.ua/ua/news/vijskovi-opublikuvali-zvorushlivij-rolik-do-dnya-zsu-ta-svyatogo-mikolaya",
 letter:"А",
 questions:[
-{q:"Чому поєднання образу Святого Миколая з темою військової служби є символічним?",a:["Воно пов'язує святкову атмосферу з увагою та вдячністю військовим","Воно пояснює історію виникнення армії","Воно порівнює військову службу зі змаганнями"],correct:0},
-{q:"Яку роль може виконувати святкове відео для військових?",a:["Замінювати їхню щоденну службу","Нагадувати їм про підтримку та зв'язок із суспільством","Повідомляти про результати спортивних змагань"],correct:1}
+["Чому поєднання образу Святого Миколая з темою військової служби є символічним?",
+["Воно пов'язує святкову атмосферу з увагою та вдячністю військовим","Воно пояснює історію виникнення армії","Воно порівнює військову службу зі змаганнями"],0],
+["Яку роль може виконувати святкове відео для військових?",
+["Замінювати їхню щоденну службу","Нагадувати їм про підтримку та зв'язок із суспільством","Повідомляти про результати спортивних змагань"],1]
 ],
 hint:"Наступний пункт маршруту пов'язаний із технологіями, комп'ютерами та цифровим світом. Шукай його на другому поверсі."
 },
 {
 title:"Вікторина до Дня Збройних Сил України",
-type:"game",
 url:"https://wordwall.net/resource/64985160/вікторина-до-дня-збройних-сил-україни",
 letter:"У",
 questions:[
-{q:"Що найточніше характеризує Збройні Сили України?",a:["Організація для проведення спортивних заходів","Система державних культурних установ","Військове формування, призначене для оборони держави"],correct:2},
-{q:"Яка з наведених якостей найбільше сприяє злагодженій роботі військового колективу?",a:["Взаємна довіра та відповідальність","Прагнення діяти лише самостійно","Байдужість до спільного результату"],correct:0}
+["Що найточніше характеризує Збройні Сили України?",
+["Організація для проведення спортивних заходів","Система державних культурних установ","Військове формування, призначене для оборони держави"],2],
+["Яка з наведених якостей найбільше сприяє злагодженій роботі військового колективу?",
+["Взаємна довіра та відповідальність","Прагнення діяти лише самостійно","Байдужість до спільного результату"],0]
 ],
 hint:"Щоб зрозуміти світ, потрібно вміти читати його карту. Наступна зупинка там, де вивчають материки, океани й країни. Третій поверх."
 },
 {
 title:"Відео до Дня Збройних Сил України",
-type:"video",
 url:"https://youtu.be/HrxoTKSjvJw?si=MXxlnXEcfnt_7Or9",
 letter:"К",
 questions:[
-{q:"Яка дата пов'язана з офіційним святкуванням Дня Збройних Сил України?",a:["14 жовтня","6 грудня","24 серпня"],correct:1},
-{q:"Чому День Збройних Сил України має державне значення?",a:["Він присвячений історії українського театру","Він відзначає початок навчального року","Він вшановує військо, яке захищає незалежність і територіальну цілісність України"],correct:2}
+["Яка дата пов'язана з офіційним святкуванням Дня Збройних Сил України?",
+["14 жовтня","6 грудня","24 серпня"],1],
+["Чому День Збройних Сил України має державне значення?",
+["Він присвячений історії українського театру","Він відзначає початок навчального року","Він вшановує військо, яке захищає незалежність і територіальну цілісність України"],2]
 ],
 hint:"Мова об'єднує людей і зберігає пам'ять народу. Шукай кабінет, де її вивчають, на другому поверсі. Це перший із двох таких кабінетів."
 },
 {
 title:"Історія Дня Збройних Сил України",
-type:"text",
 letter:"Р",
 content:`День Збройних Сил України щороку відзначають 6 грудня. Це свято присвячене всім військовослужбовцям, які захищають незалежність, суверенітет і територіальну цілісність нашої держави.
 
@@ -318,36 +474,39 @@ content:`День Збройних Сил України щороку відзн
 Слава Збройним Силам України! Слава Україні!`,
 fact:"6 грудня 1991 року Верховна Рада України ухвалила Закон «Про Збройні Сили України».",
 questions:[
-{q:"Яка подія стала підставою для вибору 6 грудня як дати свята?",a:["Ухвалення Закону «Про Збройні Сили України»","Проголошення незалежності України","Створення Запорозької Січі"],correct:0},
-{q:"Яке твердження правильно розрізняє дві дати з історії свята?",a:["Обидві події відбулися у 1991 році","Закон ухвалили у 1991 році, а свято встановили у 1993 році","Закон ухвалили у 1993 році, а свято встановили у 1991 році"],correct:1}
+["Яка подія стала підставою для вибору 6 грудня як дати свята?",
+["Ухвалення Закону «Про Збройні Сили України»","Проголошення незалежності України","Створення Запорозької Січі"],0],
+["Яке твердження правильно розрізняє дві дати з історії свята?",
+["Обидві події відбулися у 1991 році","Закон ухвалили у 1991 році, а свято встановили у 1993 році","Закон ухвалили у 1993 році, а свято встановили у 1991 році"],1]
 ],
 hint:"Ще один кабінет української мови чекає на тебе. Цього разу спускайся на перший поверх."
 },
 {
 title:"Вікторина про Збройні Сили України",
-type:"game",
 url:"https://naurok.com.ua/test/viktorina-do-dnya-zbroynih-sil-ukra-ni-2636445.html",
 letter:"А",
 questions:[
-{q:"Яка основна роль військового капелана?",a:["Організація військових перевезень","Духовна та моральна підтримка військовослужбовців","Керування військовою технікою"],correct:1},
-{q:"Для чого на військовій формі використовують шеврони?",a:["Для позначення належності до певного підрозділу чи формування","Для зберігання особистих документів","Для визначення погодних умов"],correct:0}
+["Яка основна роль військового капелана?",
+["Організація військових перевезень","Духовна та моральна підтримка військовослужбовців","Керування військовою технікою"],1],
+["Для чого на військовій формі використовують шеврони?",
+["Для позначення належності до певного підрозділу чи формування","Для зберігання особистих документів","Для визначення погодних умов"],0]
 ],
 hint:"Після насиченого дня час подумати про перерву. Знайди місце, де пахне обідом і збираються за столами."
 },
 {
 title:"Відео про підтримку українських захисників",
-type:"video",
 url:"https://vt.tiktok.com/ZSs2FmnBH",
 letter:"Ї",
 questions:[
-{q:"Чому важливо не обмежувати вдячність військовим лише одним святковим днем?",a:["Тому що повага й підтримка важливі протягом усього року","Тому що свята не мають значення","Тому що вдячність потрібна лише в соціальних мережах"],correct:0},
-{q:"Який підхід найкраще відповідає ідеї суспільної підтримки?",a:["Ігнорувати потреби інших","Покладати всю відповідальність лише на одну людину","Долучатися до корисних справ у межах власних можливостей"],correct:2}
+["Чому важливо не обмежувати вдячність військовим лише одним святковим днем?",
+["Тому що повага й підтримка важливі протягом усього року","Тому що свята не мають значення","Тому що вдячність потрібна лише в соціальних мережах"],0],
+["Який підхід найкраще відповідає ідеї суспільної підтримки?",
+["Ігнорувати потреби інших","Покладати всю відповідальність лише на одну людину","Долучатися до корисних справ у межах власних можливостей"],2]
 ],
 hint:"У школі є особливий простір, де навчаються наймолодші учні. Шукай наступний QR-код у початковій школі."
 },
 {
 title:"Українці, які випередили свій час",
-type:"text",
 letter:"Н",
 content:`ІВАН ПУЛЮЙ
 
@@ -363,19 +522,22 @@ content:`ІВАН ПУЛЮЙ
 
 Обидва вчені зробили важливий внесок у науку та збереження української культурної спадщини.`,
 questions:[
-{q:"Який саме внесок Івана Пулюя пов'язаний із ранніми рентгенівськими дослідженнями?",a:["Створення першого українського радіоприймача","Дослідження вакуумних ламп і отримання якісних рентгенівських знімків","Відкриття електричного струму"],correct:1},
-{q:"Чому діяльність Дмитра Яворницького важлива для сучасних дослідників?",a:["Він створив першу українську газету","Він винайшов новий спосіб друку","Він збирав і зберігав матеріали про історію запорозького козацтва"],correct:2}
+["Який саме внесок Івана Пулюя пов'язаний із ранніми рентгенівськими дослідженнями?",
+["Створення першого українського радіоприймача","Дослідження вакуумних ламп і отримання якісних рентгенівських знімків","Відкриття електричного струму"],1],
+["Чому діяльність Дмитра Яворницького важлива для сучасних дослідників?",
+["Він створив першу українську газету","Він винайшов новий спосіб друку","Він збирав і зберігав матеріали про історію запорозького козацтва"],2]
 ],
 hint:"Ти вже майже на фініші. Знайди місце, де говорять про захист держави та громадянську відповідальність. Це кабінет «Захист України» на третьому поверсі."
 },
 {
 title:"Фінальний етап",
-type:"video",
 url:"https://youtu.be/xsqLAbHtnao?si=CygiQYQRuUbLMmR5",
 letter:"И",
 questions:[
-{q:"Яке спільне послання найкраще підсумовує весь квест?",a:["Історія та сучасність України пов'язані пам'яттю, відповідальністю і єдністю","Минуле не має значення для сьогодення","Захист країни залежить лише від однієї людини"],correct:0},
-{q:"Що потрібно зробити після отримання всіх одинадцяти літер?",a:["Вибрати будь-яке слово","Скласти зібрані літери у фінальну фразу","Повернутися до першого етапу"],correct:1}
+["Яке спільне послання найкраще підсумовує весь квест?",
+["Історія та сучасність України пов'язані пам'яттю, відповідальністю і єдністю","Минуле не має значення для сьогодення","Захист країни залежить лише від однієї людини"],0],
+["Що потрібно зробити після отримання всіх одинадцяти літер?",
+["Вибрати будь-яке слово","Скласти зібрані літери у фінальну фразу","Повернутися до першого етапу"],1]
 ],
 hint:"Вітаємо! Ти пройшов(ла) всі 11 етапів. Час зібрати літери та відкрити фінал."
 }
@@ -395,141 +557,234 @@ function save(n){
   if(!c.includes(n))c.push(n);
   localStorage.setItem(KEY,JSON.stringify(c));
 }
-function shuffle(arr){
-  const a=[...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
+function resetProgress(){
+  if(confirm("Скинути прогрес цього браузера та почати квест спочатку?")){
+    localStorage.removeItem(KEY);
+    location.href=location.pathname;
   }
-  return a;
+}
+function shuffle(a){
+  const x=[...a];
+  for(let i=x.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [x[i],x[j]]=[x[j],x[i]];
+  }
+  return x;
 }
 function progressMarkup(n){
   return `<div class="progress-wrap">
-    <div class="progress-info"><span>Твій шлях</span><span>Етап ${n} / 11</span></div>
-    <div class="progress"><div class="progress-fill" style="width:${n/11*100}%"></div></div>
+    <div class="progress-info">
+      <span>Твій шлях</span><span>Етап ${n} / 11</span>
+    </div>
+    <div class="progress">
+      <div class="progress-fill" style="width:${n/11*100}%"></div>
+    </div>
   </div>`;
 }
+
 function home(){
   const count=completed().length;
-  app.innerHTML=`<section class="card">
-    <div class="eyebrow-dark">Вітаємо у подорожі</div>
-    <h2>Історія, що живе в кожному з нас</h2>
-    <p>На тебе чекають 11 етапів, цікаві матеріали, історичні факти та завдання про Україну і її захисників.</p>
-    <p>Скануй QR-коди по черзі, уважно виконуй завдання та збирай літери. Наприкінці на тебе чекатиме фінальна фраза і два бонуси від учителів.</p>
-    <div class="fact"><b>Твоя місія:</b><br>Пройди всі етапи, збери одинадцять літер і відкрий головне послання квесту.</div>
-    ${count?`<p class="small">Уже пройдено етапів: ${count} із 11</p>`:""}
-    <a class="btn" href="?qr=1">Почати квест</a>
+  app.innerHTML=`
+  <section class="card">
+    <div class="kicker">✦ Інтерактивна подорож · 11 етапів</div>
+    <div class="ornament">ПАМ'ЯТЬ · ЄДНІСТЬ · НЕЗЛАМНІСТЬ</div>
+    <h2>Голоси, що творять Україну</h2>
+    <p class="hero-text">
+      Це не просто квест. Це мандрівка крізь історію, людей і події,
+      що нагадують: сила України народжується з пам'яті, гідності та єдності.
+    </p>
+
+    <div class="tiles">
+      <div class="tile"><strong>11</strong><span>етапів, які потрібно пройти послідовно</span></div>
+      <div class="tile"><strong>11</strong><span>літер для фінальної загадки</span></div>
+      <div class="tile"><strong>+2</strong><span>бонусні бали у фіналі квесту</span></div>
+    </div>
+
+    <div class="mission">
+      <b>Твоя місія</b>
+      <p>Скануй QR-коди один за одним, знайомся з матеріалами,
+      відповідай на запитання та збирай літери. Кожна правильна
+      відповідь відкриває наступну підказку.</p>
+    </div>
+
+    ${count?`
+      <div class="progress-wrap">
+        <div class="progress-info"><span>Твій прогрес</span><span>${count} / 11</span></div>
+        <div class="progress"><div class="progress-fill" style="width="${count/11*100}%"></div></div>
+      </div>`:""}
+
+    <div style="margin-top:24px">
+      <a class="btn" href="?qr=1">Почати подорож →</a>
+      <button class="secondary" onclick="resetProgress()">Скинути прогрес</button>
+    </div>
+    <div class="ornament">СЛАВА УКРАЇНІ</div>
   </section>`;
 }
+
 function renderStage(n){
   const s=stages[n-1];
   if(!s){home();return}
-  if(n>1&&!completed().includes(n-1)){
-    app.innerHTML=`<section class="card">
-      <div class="eyebrow-dark">Доступ обмежено</div>
-      <h2>Цей етап ще закритий</h2>
-      <p>Спочатку потрібно пройти попередній етап квесту. Рухайся послідовно, щоб зібрати всі літери.</p>
-      <a class="btn" href="?qr=${n-1}">До попереднього етапу</a>
-    </section>`;
+
+  // Перевіряємо, чи пройдені ВСІ попередні етапи.
+  const c=completed();
+  const previousDone=Array.from({length:n-1},(_,i)=>i+1)
+    .every(k=>c.includes(k));
+
+  if(!previousDone){
+    const firstMissing=Array.from({length:n-1},(_,i)=>i+1)
+      .find(k=>!c.includes(k)) || 1;
+    app.innerHTML=`
+      <section class="card">
+        <div class="kicker">Доступ поки закритий</div>
+        <h2>Цей етап ще чекає на тебе</h2>
+        <p>Квест потрібно проходити послідовно. Спочатку заверши попередні завдання, щоб відкрити цей QR-код.</p>
+        <a class="btn" href="?qr=${firstMissing}">Перейти до етапу ${firstMissing}</a>
+      </section>`;
     return;
   }
+
   const material=s.content
-    ?`<div style="white-space:pre-line;line-height:1.8">${s.content}</div>${s.fact?`<div class="fact"><b>Цікавий факт</b><br>${s.fact}</div>`:""}`
-    :`<p>Переглянь матеріал за посиланням:</p><a class="btn" href="${s.url}" target="_blank" rel="noopener">Відкрити матеріал ↗</a>`;
-  app.innerHTML=`<section class="card">
-    <div class="eyebrow-dark">Голоси України · Етап ${n}</div>
+    ?`<div style="white-space:pre-line;line-height:1.85">${s.content}</div>
+      ${s.fact?`<div class="fact"><b>Цікавий факт</b><br>${s.fact}</div>`:""}`
+    :`<p>Переглянь матеріал за посиланням:</p>
+      <a class="btn" href="${s.url}" target="_blank" rel="noopener">Відкрити матеріал ↗</a>`;
+
+  app.innerHTML=`
+  <section class="card">
+    <div class="kicker">Голоси України · Етап ${n}</div>
     <h2>${s.title}</h2>
     ${progressMarkup(n)}
     ${material}
-    <hr>
+    <hr style="border:0;border-top:1px solid #e8e2d7;margin:28px 0">
     <h3>Перевір свої знання</h3>
-    <p class="small">У кожному запитанні одна правильна відповідь. Варіанти відповідей перемішані.</p>
+    <p class="small">У кожному запитанні одна правильна відповідь.</p>
     <div id="questions"></div>
     <button id="check">Перевірити відповіді</button>
     <p id="feedback" aria-live="polite"></p>
     <div id="result"></div>
   </section>`;
+
   let answers={};
   const qbox=document.getElementById("questions");
+
   s.questions.forEach((q,i)=>{
-    const choices=shuffle(q.a.map((text,j)=>({text,correct:j===q.correct})));
-    let html=`<div class="question"><b>${i+1}. ${q.q}</b>`;
-    choices.forEach((c,j)=>{
-      html+=`<button type="button" class="option" data-q="${i}" data-right="${c.correct}">${String.fromCharCode(65+j)}. ${c.text}</button>`;
+    const choices=shuffle(q[1].map((text,j)=>({
+      text,correct:j===q[2]
+    })));
+    let html=`<div class="question"><b>${i+1}. ${q[0]}</b>`;
+    choices.forEach((choice,j)=>{
+      html+=`<button type="button" class="option"
+        data-q="${i}" data-right="${choice.correct}">
+        ${String.fromCharCode(65+j)}. ${choice.text}
+      </button>`;
     });
     html+="</div>";
     qbox.innerHTML+=html;
   });
+
   qbox.querySelectorAll(".option").forEach(b=>{
     b.onclick=()=>{
       const i=b.dataset.q;
       answers[i]=b.dataset.right==="true";
-      qbox.querySelectorAll(`[data-q="${i}"]`).forEach(x=>x.classList.remove("selected"));
+      qbox.querySelectorAll(`[data-q="${i}"]`)
+        .forEach(x=>x.classList.remove("selected"));
       b.classList.add("selected");
     };
   });
+
   document.getElementById("check").onclick=()=>{
+    const feedback=document.getElementById("feedback");
     if(Object.keys(answers).length!==2){
-      document.getElementById("feedback").textContent="Дай відповідь на обидва запитання.";
+      feedback.textContent="Дай відповідь на обидва запитання.";
       return;
     }
     if(!Object.values(answers).every(Boolean)){
-      document.getElementById("feedback").textContent="Не всі відповіді правильні. Спробуй ще раз!";
+      feedback.textContent="Не всі відповіді правильні. Спробуй ще раз!";
       return;
     }
+
     save(n);
-    document.getElementById("feedback").textContent="Чудово! Обидві відповіді правильні. Твоя літера:";
+    feedback.textContent="Чудово! Обидві відповіді правильні. Твоя літера:";
     document.getElementById("result").innerHTML=`
-      <p class="letter">${s.letter}</p>
+      <div class="letter">${s.letter}</div>
       <div class="hint"><b>Підказка до наступного QR-коду</b><br>${s.hint}</div>
-      ${n<11?`<p>Тепер шукай QR-код №${n+1} у школі.</p>`:`<button type="button" onclick="finalPage()">Відкрити фінальне завдання</button>`}`;
+      ${n<11
+        ?`<p>Тепер шукай QR-код №${n+1} у школі.</p>`
+        :`<button type="button" onclick="finalPage()">Відкрити фінальне завдання</button>`}
+    `;
     document.getElementById("check").disabled=true;
   };
 }
+
 function finalPage(){
   if(!stages.every((s,i)=>completed().includes(i+1))){
-    app.innerHTML=`<section class="card"><h2>Ще не всі етапи пройдено</h2><p>Збери всі 11 літер, щоб відкрити фінал.</p></section>`;
+    app.innerHTML=`
+      <section class="card">
+        <h2>Ще не всі етапи пройдено</h2>
+        <p>Збери всі 11 літер, щоб відкрити фінал.</p>
+      </section>`;
     return;
   }
-  app.innerHTML=`<section class="card">
-    <div class="eyebrow-dark">Останнє випробування</div>
+
+  // Перемішуємо літери окремо для фінального завдання.
+  const letters=shuffle(Array.from("СИЛАУКРАЇНИ"));
+  const tiles=letters.map(letter=>`<span>${letter}</span>`).join("");
+
+  app.innerHTML=`
+  <section class="card">
+    <div class="kicker">Останнє випробування</div>
     <h2>Усі частини однієї історії</h2>
-    <p>Ти зібрав(ла) всі одинадцять літер. Склади з них фразу, яка символізує силу нашої держави.</p>
-    <p class="letter">С И Л А У К Р А Ї Н И</p>
-    <input id="finalAnswer" placeholder="Введи фінальну фразу" autocomplete="off">
-    <button type="button" onclick="checkFinal()">Перевірити</button>
+    <p>Ти зібрав(ла) всі одинадцять літер. Але вони загубили свій порядок!</p>
+    <p>Перестав їх подумки та склади головну фразу квесту.</p>
+
+    <div class="scrambled">${tiles}</div>
+
+    <p class="small" style="text-align:center">Введи свою відповідь нижче</p>
+    <input id="finalAnswer" placeholder="Твоя фінальна фраза" autocomplete="off">
+    <button type="button" onclick="checkFinal()">Перевірити відповідь</button>
     <p id="finalFeedback" aria-live="polite"></p>
   </section>`;
 }
+
 function checkFinal(){
   const input=document.getElementById("finalAnswer");
-  const v=input.value.toUpperCase().replace(/[^А-ЯІЇЄҐ]/g,"");
-  if(v==="СИЛАУКРАЇНИ"){
-    app.innerHTML=`<section class="card">
-      <div class="eyebrow-dark">Місію виконано</div>
+  const answer=input.value.toUpperCase().replace(/[^А-ЯІЇЄҐ]/g,"");
+
+  if(answer==="СИЛАУКРАЇНИ"){
+    app.innerHTML=`
+    <section class="card">
+      <div class="kicker">✦ Місію виконано</div>
       <h2>Вітаємо! Квест завершено!</h2>
-      <p class="letter">СИЛА УКРАЇНИ</p>
+      <div class="ornament">СИЛА УКРАЇНИ</div>
       <p>Ти успішно пройшов(ла) всі 11 етапів квесту «Голоси України»!</p>
-      <div class="final-bonus">
-        <div class="eyebrow-dark">Бонус від учителя української мови</div>
+
+      <div class="bonus">
+        <div class="small">Бонус від учителя української мови</div>
         <h3>+1 бал</h3>
         <p>До контрольної роботи з української мови!</p>
       </div>
-      <div class="final-bonus">
-        <div class="eyebrow-dark">Бонус від учителя історії</div>
+
+      <div class="bonus">
+        <div class="small">Бонус від учителя історії</div>
         <h3>+1 бал</h3>
         <p>З історії України!</p>
       </div>
-      <hr>
-      <h3>Дякуємо за участь!</h3>
-      <p>Пам’ятаймо про тих, хто захищає Україну. Слава Збройним Силам України!</p>
+
+      <div class="ornament">ДЯКУЄМО ЗА УЧАСТЬ</div>
+      <p>Пам’ятаймо про тих, хто захищає Україну.</p>
+      <h3>Слава Збройним Силам України!</h3>
     </section>`;
   }else{
-    document.getElementById("finalFeedback").textContent="Спробуй ще раз. Уважно перестав усі зібрані літери.";
+    document.getElementById("finalFeedback").textContent=
+      "Поки що не збігається. Спробуй ще раз і уважно перестав літери.";
   }
 }
-if(number>=1&&number<=11)renderStage(number);
-else home();
+
+if(number>=1&&number<=11){
+  renderStage(number);
+}else{
+  home();
+}
 </script>
 </body>
 </html>
