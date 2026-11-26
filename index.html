@@ -1,177 +1,599 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101b2c">
+<meta name="theme-color" content="#081522">
 <title>Голоси України | Квест</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --navy:#101b2c;
-  --navy2:#203b59;
-  --cream:#f5f0e6;
+:root {
+  --navy:#081522;
+  --navy2:#17334d;
+  --cream:#f7f1e6;
   --paper:#fffdf8;
-  --gold:#c9a76a;
-  --gold-light:#ead9b5;
+  --gold:#d8b779;
+  --gold-light:#f0dfbd;
   --blue:#7898bd;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;min-height:100vh;color:var(--cream);
+
+* {box-sizing:border-box}
+
+html {scroll-behavior:smooth}
+
+body {
+  margin:0;
+  min-height:100vh;
+  color:var(--cream);
   font-family:'Manrope',Arial,sans-serif;
   background:
-    radial-gradient(ellipse at 10% 10%,rgba(120,152,189,.2),transparent 32%),
-    radial-gradient(ellipse at 90% 75%,rgba(201,167,106,.12),transparent 30%),
-    var(--navy);
+    radial-gradient(ellipse at 12% 8%,#29445d 0,transparent 34%),
+    radial-gradient(ellipse at 90% 80%,#493b2a 0,transparent 28%),
+    #081522;
 }
-body:before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.1;
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.1;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
 }
-header{
-  position:relative;z-index:1;overflow:hidden;min-height:330px;
-  padding:55px 20px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;
-  background:linear-gradient(130deg,rgba(8,17,30,.97),rgba(34,62,91,.94));
-  border-bottom:1px solid rgba(201,167,106,.5);
+
+header {
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  min-height:min(690px,88vh);
+  padding:80px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(180deg,rgba(5,13,23,.28),rgba(5,13,23,.88)),
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=88")
+    center 52%/cover;
+  border-bottom:2px solid var(--gold);
 }
-header:before,header:after{
-  content:"";position:absolute;width:300px;height:300px;
-  border:1px solid rgba(201,167,106,.22);border-radius:50%;
+
+header:before,
+header:after {
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(201,167,106,.22);
+  border-radius:50%;
 }
-header:before{left:-190px;top:-170px}
-header:after{right:-190px;bottom:-205px;width:390px;height:390px}
-.header-mark{
-  position:relative;z-index:1;width:48px;height:48px;margin-bottom:18px;
-  display:grid;place-items:center;color:var(--gold-light);
-  border:1px solid rgba(201,167,106,.65);transform:rotate(45deg);
+
+header:before {
+  width:460px;
+  height:460px;
+  left:-250px;
+  top:-240px;
+  border-color:#e2c58d55;
 }
-.header-mark span{font-size:27px;transform:rotate(-45deg)}
-.eyebrow{
-  position:relative;z-index:1;color:var(--gold-light);
-  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+
+header:after {
+  width:560px;
+  height:560px;
+  right:-300px;
+  bottom:-360px;
+  border-color:#e2c58d55;
 }
-header h1{
-  position:relative;z-index:1;margin:18px 0 12px;
+
+.header-mark {
+  position:relative;
+  z-index:1;
+  width:62px;
+  height:62px;
+  margin-bottom:18px;
+  display:grid;
+  place-items:center;
+  color:var(--gold-light);
+  border:1px solid rgba(201,167,106,.65);
+  transform:rotate(45deg);
+  box-shadow:0 0 35px #d8b77944;
+}
+
+.header-mark span {
+  font-size:34px;
+  transform:rotate(-45deg);
+}
+
+.eyebrow {
+  position:relative;
+  z-index:1;
+  color:#f0dfbd;
+  font-size:11px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+header h1 {
+  position:relative;
+  z-index:1;
+  margin:18px 0 12px;
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:clamp(58px,11vw,92px);font-weight:500;
-  line-height:.9;letter-spacing:1px;text-shadow:0 8px 30px #0006;
+  font-size:clamp(72px,14vw,138px);
+  font-weight:500;
+  line-height:.82;
+  letter-spacing:2px;
+  color:#fffaf0;
+  text-shadow:0 10px 45px #000;
+  animation:heroRise 1s ease both;
 }
-header p{
-  position:relative;z-index:1;color:#d8d1c3;
-  font-size:10px;letter-spacing:3px;
+
+header p {
+  position:relative;
+  z-index:1;
+  margin-top:28px;
+  color:#f0dfbd;
+  font-size:11px;
+  letter-spacing:4px;
 }
-main{position:relative;z-index:1;width:min(900px,100%);margin:40px auto 60px;padding:0 15px}
-.card{
-  position:relative;overflow:hidden;padding:clamp(25px,6vw,52px);
-  margin-bottom:22px;color:var(--navy);background:var(--paper);
-  border:1px solid rgba(201,167,106,.6);border-radius:5px;
-  box-shadow:0 25px 75px #0005;animation:appear .45s ease both;
+
+@keyframes heroRise {
+  from {
+    opacity:0;
+    transform:translateY(28px);
+    filter:blur(5px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+  }
 }
-.card:before{
-  content:"";position:absolute;top:0;left:0;width:100%;height:5px;
-  background:linear-gradient(90deg,var(--gold),#f5e8c9,var(--gold));
+
+main {
+  position:relative;
+  z-index:1;
+  width:min(1000px,100%);
+  margin:48px auto 75px;
+  padding:0 15px;
 }
-.card:after{
-  content:"";position:absolute;inset:12px;
-  border:1px solid rgba(201,167,106,.2);border-radius:3px;pointer-events:none;
+
+.card {
+  position:relative;
+  overflow:hidden;
+  padding:clamp(27px,6vw,62px);
+  margin-bottom:22px;
+  color:var(--navy);
+  background:linear-gradient(145deg,#fffdf8,#f2ecdf);
+  border:1px solid rgba(201,167,106,.6);
+  border-radius:7px;
+  box-shadow:0 30px 90px #0007;
+  animation:cardRise .65s ease both;
 }
-.card>*{position:relative;z-index:1}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.kicker{
-  display:inline-block;padding:8px 12px;color:#80633b;background:#faf5e9;
-  border:1px solid #d8c59f;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+
+.card:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:linear-gradient(90deg,#9b7540,#f1d9a6,#9b7540);
 }
-h2{
-  margin:18px 0 20px;color:var(--navy);
+
+.card:after {
+  content:"";
+  position:absolute;
+  inset:15px;
+  border:1px solid #c9a76a55;
+  border-radius:3px;
+  pointer-events:none;
+}
+
+.card>* {
+  position:relative;
+  z-index:1;
+}
+
+@keyframes cardRise {
+  from {opacity:0;transform:translateY(20px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.kicker {
+  display:inline-block;
+  padding:10px 15px;
+  color:#80633b;
+  background:#faf5e9;
+  border:1px solid #d8c59f;
+  font-size:10px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  border-radius:2px;
+}
+
+h2 {
+  margin:18px 0 20px;
+  color:var(--navy);
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:clamp(34px,7vw,52px);font-weight:500;line-height:1.08;
+  font-size:clamp(40px,7vw,66px);
+  font-weight:500;
+  line-height:1.02;
 }
-h3{margin-top:28px;color:#334d6b;font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600}
-p{font-size:15px;line-height:1.85}
-.small{color:#8b795b;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
-.ornament{
-  display:flex;align-items:center;gap:13px;margin:24px 0;
-  color:#a98750;font-size:10px;letter-spacing:3px;text-align:center;
+
+h3 {
+  margin-top:28px;
+  color:#334d6b;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:30px;
+  font-weight:600;
 }
-.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:#d9c9aa}
-.hero-text{max-width:670px;color:#4a5664;font-size:17px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:27px 0}
-.tile{padding:18px 14px;background:#f4f0e7;border:1px solid #e5dccb;border-radius:4px}
-.tile strong{display:block;margin-bottom:7px;color:#987748;font-family:'Cormorant Garamond',Georgia,serif;font-size:36px}
-.tile span{color:#68717a;font-size:11px;line-height:1.5}
-.mission{padding:21px;color:var(--cream);background:var(--navy2);border-left:3px solid var(--gold)}
-.mission b{color:var(--gold-light);font-size:10px;letter-spacing:2px;text-transform:uppercase}
-.mission p{margin-bottom:0}
-.btn,button{
-  display:inline-block;padding:14px 21px;margin:7px 4px 7px 0;
-  color:var(--cream);background:var(--navy);border:1px solid var(--gold);
-  border-radius:4px;font:600 12px 'Manrope',Arial,sans-serif;
-  letter-spacing:1px;text-align:center;text-decoration:none;cursor:pointer;
+
+p {
+  font-size:15px;
+  line-height:1.85;
+}
+
+.small {
+  color:#8b795b;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.ornament {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin:24px 0;
+  color:#a98750;
+  font-size:10px;
+  letter-spacing:3px;
+  text-align:center;
+}
+
+.ornament:before,
+.ornament:after {
+  content:"";
+  height:1px;
+  flex:1;
+  background:#d9c9aa;
+}
+
+.hero-text {
+  max-width:670px;
+  color:#4a5664;
+  font-size:18px;
+  line-height:1.9;
+}
+
+.tiles {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin:27px 0;
+}
+
+.tile {
+  padding:22px 17px;
+  background:#f4f0e7;
+  border:1px solid #e5dccb;
+  border-radius:5px;
+  transition:transform .25s,box-shadow .25s;
+}
+
+.tile:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px #0001;
+}
+
+.tile strong {
+  display:block;
+  margin-bottom:7px;
+  color:#987748;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:46px;
+}
+
+.tile span {
+  color:#68717a;
+  font-size:11px;
+  line-height:1.5;
+}
+
+.mission {
+  padding:25px;
+  color:var(--cream);
+  background:linear-gradient(120deg,#10243a,#294967);
+  border-left:4px solid var(--gold);
+  border-radius:3px;
+}
+
+.mission b {
+  color:var(--gold-light);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.mission p {margin-bottom:0}
+
+.btn,
+button {
+  display:inline-block;
+  padding:15px 23px;
+  margin:7px 4px 7px 0;
+  color:var(--cream);
+  background:var(--navy);
+  border:1px solid var(--gold);
+  border-radius:3px;
+  font:600 12px 'Manrope',Arial,sans-serif;
+  letter-spacing:1.2px;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
   transition:.2s ease;
 }
-.btn:hover,button:hover{color:var(--navy);background:var(--gold-light);transform:translateY(-2px)}
-.secondary{color:var(--navy);background:transparent;border-color:#bca477}
-button:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.progress-wrap{margin:22px 0 28px}
-.progress-info{display:flex;justify-content:space-between;gap:10px;color:#8b795b;font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.progress{height:7px;margin-top:10px;overflow:hidden;background:#e9e3d8;border-radius:20px}
-.progress-fill{height:100%;background:linear-gradient(90deg,#9c7945,#e2c58d);border-radius:20px;transition:width .3s}
-.question{padding:18px 0;border-bottom:1px solid #e8e2d7}
-.question b{display:block;margin-bottom:12px;color:#263b54;font-size:16px;line-height:1.6}
-.option{
-  display:block;width:100%;padding:14px 16px;margin:9px 0;
-  color:#27374b;background:#f4f1ea;border:1px solid #e4ded1;
-  border-radius:4px;font:13px/1.6 'Manrope',Arial,sans-serif;
-  letter-spacing:0;text-align:left;
+
+.btn:hover,
+button:hover {
+  color:var(--navy);
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px #0002;
 }
-.option:hover{color:var(--navy);background:#eee5d4;border-color:var(--gold)}
-.option.selected{color:var(--navy);background:#e8dfce;border-color:var(--gold);box-shadow:inset 3px 0 var(--gold)}
-.fact{padding:18px 20px;margin:22px 0;color:#34475c;background:#edf1f3;border-left:3px solid var(--blue);line-height:1.8}
-.hint{padding:20px;margin-top:20px;color:#463b29;background:#f4eddf;border-left:3px solid var(--gold);line-height:1.8}
-.letter{
-  padding:12px 0;color:#9b7740;font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:60px;font-weight:700;letter-spacing:8px;text-align:center;
+
+.secondary {
+  color:var(--navy);
+  background:transparent;
+  border-color:#bca477;
 }
-input{
-  width:100%;padding:16px;margin:12px 0;color:var(--navy);
-  background:white;border:1px solid #d8cbb5;border-radius:3px;
+
+button:disabled {
+  opacity:.5;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.progress-wrap {margin:22px 0 28px}
+
+.progress-info {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#8b795b;
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.progress {
+  height:9px;
+  margin-top:10px;
+  overflow:hidden;
+  background:#e9e3d8;
+  border-radius:20px;
+}
+
+.progress-fill {
+  height:100%;
+  background:linear-gradient(90deg,#9c7945,#e2c58d);
+  border-radius:20px;
+  transition:width .3s;
+}
+
+.question {
+  padding:18px 0;
+  border-bottom:1px solid #e8e2d7;
+}
+
+.question b {
+  display:block;
+  margin-bottom:12px;
+  color:#263b54;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.option {
+  display:block;
+  width:100%;
+  padding:16px 18px;
+  margin:9px 0;
+  color:#27374b;
+  background:#f4f1ea;
+  border:1px solid #e4ded1;
+  border-radius:5px;
+  font:13px/1.6 'Manrope',Arial,sans-serif;
+  letter-spacing:0;
+  text-align:left;
+  transition:all .2s;
+}
+
+.option:hover {
+  color:var(--navy);
+  background:#eee5d4;
+  border-color:var(--gold);
+}
+
+.option.selected {
+  color:var(--navy);
+  background:#e9dcc3;
+  border-color:#b58a4e;
+  box-shadow:inset 4px 0 #b58a4e;
+}
+
+.fact {
+  padding:22px;
+  margin:22px 0;
+  color:#34475c;
+  background:#edf1f3;
+  border-left:3px solid var(--blue);
+  border-radius:3px;
+  line-height:1.8;
+}
+
+.hint {
+  padding:22px;
+  margin-top:20px;
+  color:#463b29;
+  background:#f4eddf;
+  border-left:3px solid var(--gold);
+  border-radius:3px;
+  line-height:1.8;
+}
+
+.letter {
+  padding:12px 0;
+  color:#9b7740;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:82px;
+  font-weight:700;
+  letter-spacing:8px;
+  text-align:center;
+  text-shadow:0 5px 15px #c9a76a33;
+}
+
+input {
+  width:100%;
+  padding:17px;
+  margin:12px 0;
+  color:var(--navy);
+  background:white;
+  border:1px solid #d8cbb5;
+  border-radius:4px;
   font:16px 'Manrope',Arial,sans-serif;
 }
-input:focus{outline:2px solid #c9a76a55;border-color:var(--gold)}
-.scrambled{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:24px 0}
-.scrambled span{
-  display:flex;align-items:center;justify-content:center;width:43px;height:49px;
-  color:#f8f0df;background:linear-gradient(145deg,#263f5b,#101b2c);
-  border:1px solid var(--gold);border-radius:4px;font-size:22px;
+
+input:focus {
+  outline:2px solid #c9a76a55;
+  border-color:var(--gold);
+}
+
+.scrambled {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:24px 0;
+}
+
+.scrambled span {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:49px;
+  height:55px;
+  color:#f8f0df;
+  background:linear-gradient(145deg,#263f5b,#101b2c);
+  border:1px solid var(--gold);
+  border-radius:4px;
+  font-size:25px;
   box-shadow:0 4px 10px #0002;
 }
-.bonus{padding:18px 20px;margin:15px 0;background:#f4eddf;border-left:3px solid var(--gold)}
-.bonus h3{margin:8px 0}
-footer{
-  position:relative;z-index:1;padding:32px 18px;color:#c6b99f;
-  border-top:1px solid rgba(201,167,106,.3);
-  font-size:10px;letter-spacing:2px;text-align:center;
+
+.bonus {
+  padding:22px;
+  margin:15px 0;
+  background:#f4eddf;
+  border-left:3px solid var(--gold);
+  border-radius:3px;
 }
-@media(max-width:560px){
-  header{min-height:270px}
-  main{margin:25px auto 45px}
-  .card{padding:25px 19px}
-  .tiles{grid-template-columns:1fr}
-  .tile{display:flex;align-items:center;gap:14px}
-  .tile strong{margin:0;min-width:45px}
-  .letter{letter-spacing:5px}
+
+.bonus h3 {margin:8px 0}
+
+.stage-photo,
+.home-photo {
+  position:relative;
+  width:100%;
+  height:clamp(190px,34vw,330px);
+  margin:24px 0 28px;
+  overflow:hidden;
+  border:1px solid #c9a76a;
+  border-radius:5px;
+  box-shadow:0 15px 35px #0002;
+}
+
+.stage-photo img,
+.home-photo img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 1s;
+}
+
+.stage-photo:hover img,
+.home-photo:hover img {
+  transform:scale(1.035);
+}
+
+.stage-photo:after,
+.home-photo:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,#09152255,transparent 60%);
+  pointer-events:none;
+}
+
+footer {
+  position:relative;
+  z-index:1;
+  padding:38px 15px;
+  color:#c6b99f;
+  border-top:1px solid rgba(201,167,106,.3);
+  font-size:10px;
+  letter-spacing:2.5px;
+  text-align:center;
+}
+
+@media(max-width:560px) {
+  header {
+    min-height:430px;
+    background-position:center;
+  }
+
+  header h1 {font-size:76px}
+  header p {letter-spacing:2.5px}
+
+  main {margin:25px auto 45px}
+
+  .card {padding:26px 20px}
+
+  .tiles {grid-template-columns:1fr}
+
+  .tile {
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .tile strong {
+    margin:0;
+    min-width:45px;
+  }
+
+  .letter {letter-spacing:5px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *:before,
+  *:after {
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="header-mark"><span>✳</span></div>
   <div class="eyebrow">Інтерактивний шкільний квест</div>
@@ -362,17 +784,20 @@ function completed(){
   try{return JSON.parse(localStorage.getItem(KEY)||"[]")}
   catch(e){return []}
 }
+
 function save(n){
   const c=completed();
   if(!c.includes(n))c.push(n);
   localStorage.setItem(KEY,JSON.stringify(c));
 }
+
 function resetProgress(){
   if(confirm("Скинути прогрес цього браузера та почати квест спочатку?")){
     localStorage.removeItem(KEY);
     location.href=location.pathname;
   }
 }
+
 function shuffle(a){
   const x=[...a];
   for(let i=x.length-1;i>0;i--){
@@ -381,6 +806,7 @@ function shuffle(a){
   }
   return x;
 }
+
 function progressMarkup(n){
   return `<div class="progress-wrap">
     <div class="progress-info"><span>Твій шлях</span><span>Етап ${n} / 11</span></div>
@@ -390,6 +816,7 @@ function progressMarkup(n){
 
 function home(){
   const count=completed().length;
+
   app.innerHTML=`
   <section class="card">
     <div class="kicker">✦ Інтерактивна подорож · 11 етапів</div>
@@ -399,28 +826,55 @@ function home(){
       Це не просто квест. Це мандрівка крізь історію, людей і події,
       що нагадують: сила України народжується з пам'яті, гідності та єдності.
     </p>
+
+    <div class="home-photo">
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=85" alt="Український краєвид" loading="eager">
+    </div>
+
     <div class="tiles">
       <div class="tile"><strong>11</strong><span>етапів, які потрібно пройти послідовно</span></div>
       <div class="tile"><strong>11</strong><span>літер для фінальної загадки</span></div>
       <div class="tile"><strong>+2</strong><span>бонусні бали у фіналі квесту</span></div>
     </div>
+
     <div class="mission">
       <b>Твоя місія</b>
       <p>Скануй QR-коди один за одним, знайомся з матеріалами,
       відповідай на запитання та збирай літери. Кожна правильна
       відповідь відкриває наступну підказку.</p>
     </div>
+
     ${count?`
       <div class="progress-wrap">
         <div class="progress-info"><span>Твій прогрес</span><span>${count} / 11</span></div>
         <div class="progress"><div class="progress-fill" style="width:${count/11*100}%"></div></div>
       </div>`:""}
+
     <div style="margin-top:24px">
       <a class="btn" href="?qr=1">Почати подорож →</a>
       <button class="secondary" onclick="resetProgress()">Скинути прогрес</button>
     </div>
+
     <div class="ornament">СЛАВА УКРАЇНІ</div>
   </section>`;
+}
+
+function stagePhotoUrl(n){
+  const photos=[
+    "photo-1464822759023-fed622ff2c3b",
+    "photo-1473448912268-2022ce9509d8",
+    "photo-1469474968028-56623f02e42e",
+    "photo-1500530855697-b586d89ba3ee",
+    "photo-1470252649378-9c29740c9fa8",
+    "photo-1501785888041-af3ef285b470",
+    "photo-1519681393784-d120267933ba",
+    "photo-1500534623283-312aade485b7",
+    "photo-1500534314209-a25ddb2bd429",
+    "photo-1518837695005-2083093ee35b",
+    "photo-1470770841072-f978cf4d019e"
+  ];
+
+  return "https://images.unsplash.com/"+photos[n-1]+"?auto=format&fit=crop&w=1400&q=85";
 }
 
 function renderStage(n){
@@ -432,6 +886,7 @@ function renderStage(n){
 
   if(!previousDone){
     const firstMissing=Array.from({length:n-1},(_,i)=>i+1).find(k=>!c.includes(k))||1;
+
     app.innerHTML=`
       <section class="card">
         <div class="kicker">Доступ поки закритий</div>
@@ -439,6 +894,7 @@ function renderStage(n){
         <p>Квест потрібно проходити послідовно. Спочатку заверши попередні завдання, щоб відкрити цей QR-код.</p>
         <a class="btn" href="?qr=${firstMissing}">Перейти до етапу ${firstMissing}</a>
       </section>`;
+
     return;
   }
 
@@ -451,10 +907,17 @@ function renderStage(n){
   app.innerHTML=`
   <section class="card">
     <div class="kicker">Голоси України · Етап ${n}</div>
+
+    <div class="stage-photo">
+      <img src="${stagePhotoUrl(n)}" alt="Український краєвид" loading="eager">
+    </div>
+
     <h2>${s.title}</h2>
     ${progressMarkup(n)}
     ${material}
+
     <hr style="border:0;border-top:1px solid #e8e2d7;margin:28px 0">
+
     <h3>Перевір свої знання</h3>
     <p class="small">У кожному запитанні одна правильна відповідь.</p>
     <div id="questions"></div>
@@ -469,11 +932,13 @@ function renderStage(n){
   s.questions.forEach((q,i)=>{
     const choices=shuffle(q[1].map((text,j)=>({text,correct:j===q[2]})));
     let html=`<div class="question"><b>${i+1}. ${q[0]}</b>`;
+
     choices.forEach((choice,j)=>{
       html+=`<button type="button" class="option" data-q="${i}" data-right="${choice.correct}">
         ${String.fromCharCode(65+j)}. ${choice.text}
       </button>`;
     });
+
     html+="</div>";
     qbox.innerHTML+=html;
   });
@@ -489,17 +954,21 @@ function renderStage(n){
 
   document.getElementById("check").onclick=()=>{
     const feedback=document.getElementById("feedback");
+
     if(Object.keys(answers).length!==2){
       feedback.textContent="Дай відповідь на обидва запитання.";
       return;
     }
+
     if(!Object.values(answers).every(Boolean)){
       feedback.textContent="Не всі відповіді правильні. Спробуй ще раз!";
       return;
     }
 
     save(n);
+
     feedback.textContent="Чудово! Обидві відповіді правильні. Твоя літера:";
+
     document.getElementById("result").innerHTML=`
       <div class="letter">${s.letter}</div>
       <div class="hint"><b>Підказка до наступного QR-коду</b><br>${s.hint}</div>
@@ -507,6 +976,7 @@ function renderStage(n){
         ?`<p>Тепер шукай QR-код №${n+1} у школі.</p>`
         :`<button type="button" onclick="finalPage()">Відкрити фінальне завдання</button>`}
     `;
+
     document.getElementById("check").disabled=true;
   };
 }
@@ -549,16 +1019,19 @@ function checkFinal(){
       <h2>Вітаємо! Квест завершено!</h2>
       <div class="ornament">СИЛА УКРАЇНИ</div>
       <p>Ти успішно пройшов(ла) всі 11 етапів квесту «Голоси України»!</p>
+
       <div class="bonus">
         <div class="small">Бонус від учителя української мови</div>
         <h3>+1 бал</h3>
         <p>До контрольної роботи з української мови!</p>
       </div>
+
       <div class="bonus">
         <div class="small">Бонус від учителя історії</div>
         <h3>+1 бал</h3>
         <p>З історії України!</p>
       </div>
+
       <div class="ornament">ДЯКУЄМО ЗА УЧАСТЬ</div>
       <p>Пам’ятаймо про тих, хто захищає Україну.</p>
       <h3>Слава Збройним Силам України!</h3>
@@ -575,5 +1048,6 @@ if(number>=1&&number<=11){
   home();
 }
 </script>
+
 </body>
 </html>
