@@ -6,9 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#101b2c">
 <title>Голоси України | Квест</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --navy:#101b2c;
   --navy2:#203b59;
   --cream:#f5f0e6;
@@ -16,337 +19,145 @@
   --gold:#c9a76a;
   --gold-light:#ead9b5;
   --blue:#7898bd;
-  --muted:#777d84;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  min-height:100vh;
-  color:var(--cream);
-  font-family:Georgia,"Times New Roman",serif;
+  margin:0;min-height:100vh;color:var(--cream);
+  font-family:'Manrope',Arial,sans-serif;
   background:
     radial-gradient(ellipse at 10% 10%,rgba(120,152,189,.2),transparent 32%),
     radial-gradient(ellipse at 90% 75%,rgba(201,167,106,.12),transparent 30%),
     var(--navy);
 }
+body:before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+}
 header{
-  position:relative;
-  overflow:hidden;
-  min-height:310px;
-  padding:55px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    linear-gradient(130deg,rgba(8,17,30,.96),rgba(34,62,91,.94)),
-    repeating-linear-gradient(135deg,transparent 0 25px,rgba(255,255,255,.03) 25px 26px);
+  position:relative;z-index:1;overflow:hidden;min-height:330px;
+  padding:55px 20px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(130deg,rgba(8,17,30,.97),rgba(34,62,91,.94));
   border-bottom:1px solid rgba(201,167,106,.5);
 }
 header:before,header:after{
-  content:"";
-  position:absolute;
-  width:280px;height:280px;
-  border:1px solid rgba(201,167,106,.22);
-  border-radius:50%;
+  content:"";position:absolute;width:300px;height:300px;
+  border:1px solid rgba(201,167,106,.22);border-radius:50%;
 }
-header:before{left:-170px;top:-160px}
-header:after{right:-170px;bottom:-190px;width:360px;height:360px}
+header:before{left:-190px;top:-170px}
+header:after{right:-190px;bottom:-205px;width:390px;height:390px}
+.header-mark{
+  position:relative;z-index:1;width:48px;height:48px;margin-bottom:18px;
+  display:grid;place-items:center;color:var(--gold-light);
+  border:1px solid rgba(201,167,106,.65);transform:rotate(45deg);
+}
+.header-mark span{font-size:27px;transform:rotate(-45deg)}
 .eyebrow{
-  position:relative;
-  z-index:1;
-  color:var(--gold-light);
-  font:10px Arial,sans-serif;
-  letter-spacing:4px;
-  text-transform:uppercase;
+  position:relative;z-index:1;color:var(--gold-light);
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
 }
 header h1{
-  position:relative;
-  z-index:1;
-  margin:18px 0 12px;
-  font-size:clamp(42px,9vw,76px);
-  font-weight:500;
-  letter-spacing:2px;
-  text-shadow:0 8px 30px #0006;
+  position:relative;z-index:1;margin:18px 0 12px;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(58px,11vw,92px);font-weight:500;
+  line-height:.9;letter-spacing:1px;text-shadow:0 8px 30px #0006;
 }
 header p{
-  position:relative;
-  z-index:1;
-  color:#d8d1c3;
-  font:11px Arial,sans-serif;
-  letter-spacing:3px;
+  position:relative;z-index:1;color:#d8d1c3;
+  font-size:10px;letter-spacing:3px;
 }
-main{
-  width:min(900px,100%);
-  margin:40px auto 60px;
-  padding:0 15px;
-}
+main{position:relative;z-index:1;width:min(900px,100%);margin:40px auto 60px;padding:0 15px}
 .card{
-  position:relative;
-  overflow:hidden;
-  padding:clamp(25px,6vw,52px);
-  margin-bottom:22px;
-  color:var(--navy);
-  background:var(--paper);
-  border:1px solid rgba(201,167,106,.55);
-  border-radius:7px;
-  box-shadow:0 25px 75px #0005;
-  animation:appear .45s ease both;
+  position:relative;overflow:hidden;padding:clamp(25px,6vw,52px);
+  margin-bottom:22px;color:var(--navy);background:var(--paper);
+  border:1px solid rgba(201,167,106,.6);border-radius:5px;
+  box-shadow:0 25px 75px #0005;animation:appear .45s ease both;
 }
 .card:before{
-  content:"";
-  position:absolute;
-  top:0;left:0;width:100%;height:5px;
+  content:"";position:absolute;top:0;left:0;width:100%;height:5px;
   background:linear-gradient(90deg,var(--gold),#f5e8c9,var(--gold));
 }
 .card:after{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:1px solid rgba(201,167,106,.17);
-  border-radius:3px;
-  pointer-events:none;
+  content:"";position:absolute;inset:12px;
+  border:1px solid rgba(201,167,106,.2);border-radius:3px;pointer-events:none;
 }
 .card>*{position:relative;z-index:1}
-@keyframes appear{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .kicker{
-  display:inline-block;
-  padding:8px 12px;
-  color:#80633b;
-  background:#faf5e9;
-  border:1px solid #d8c59f;
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  text-transform:uppercase;
+  display:inline-block;padding:8px 12px;color:#80633b;background:#faf5e9;
+  border:1px solid #d8c59f;font-size:10px;letter-spacing:2px;text-transform:uppercase;
 }
 h2{
-  margin:17px 0 20px;
-  color:var(--navy);
-  font-size:clamp(29px,6vw,46px);
-  font-weight:500;
-  line-height:1.18;
+  margin:18px 0 20px;color:var(--navy);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(34px,7vw,52px);font-weight:500;line-height:1.08;
 }
-h3{
-  margin-top:28px;
-  color:#334d6b;
-  font-size:21px;
-  font-weight:500;
-}
-p{font-size:16px;line-height:1.8}
-.small{
-  color:#8b795b;
-  font:10px Arial,sans-serif;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
+h3{margin-top:28px;color:#334d6b;font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600}
+p{font-size:15px;line-height:1.85}
+.small{color:#8b795b;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
 .ornament{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  margin:24px 0;
-  color:#a98750;
-  font:10px Arial,sans-serif;
-  letter-spacing:3px;
-  text-align:center;
+  display:flex;align-items:center;gap:13px;margin:24px 0;
+  color:#a98750;font-size:10px;letter-spacing:3px;text-align:center;
 }
-.ornament:before,.ornament:after{
-  content:"";
-  height:1px;
-  flex:1;
-  background:#d9c9aa;
-}
-.hero-text{
-  max-width:670px;
-  color:#4a5664;
-  font-size:17px;
-}
-.tiles{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:27px 0;
-}
-.tile{
-  padding:18px 14px;
-  background:#f4f0e7;
-  border:1px solid #e5dccb;
-  border-radius:4px;
-}
-.tile strong{
-  display:block;
-  margin-bottom:7px;
-  color:#987748;
-  font-size:28px;
-}
-.tile span{
-  color:#68717a;
-  font:11px/1.5 Arial,sans-serif;
-}
-.mission{
-  padding:21px;
-  color:var(--cream);
-  background:var(--navy2);
-  border-left:3px solid var(--gold);
-}
-.mission b{
-  color:var(--gold-light);
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:#d9c9aa}
+.hero-text{max-width:670px;color:#4a5664;font-size:17px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:27px 0}
+.tile{padding:18px 14px;background:#f4f0e7;border:1px solid #e5dccb;border-radius:4px}
+.tile strong{display:block;margin-bottom:7px;color:#987748;font-family:'Cormorant Garamond',Georgia,serif;font-size:36px}
+.tile span{color:#68717a;font-size:11px;line-height:1.5}
+.mission{padding:21px;color:var(--cream);background:var(--navy2);border-left:3px solid var(--gold)}
+.mission b{color:var(--gold-light);font-size:10px;letter-spacing:2px;text-transform:uppercase}
 .mission p{margin-bottom:0}
 .btn,button{
-  display:inline-block;
-  padding:14px 21px;
-  margin:7px 4px 7px 0;
-  color:var(--cream);
-  background:var(--navy);
-  border:1px solid var(--gold);
-  border-radius:4px;
-  font:600 13px Arial,sans-serif;
-  letter-spacing:1px;
-  text-align:center;
-  text-decoration:none;
-  cursor:pointer;
+  display:inline-block;padding:14px 21px;margin:7px 4px 7px 0;
+  color:var(--cream);background:var(--navy);border:1px solid var(--gold);
+  border-radius:4px;font:600 12px 'Manrope',Arial,sans-serif;
+  letter-spacing:1px;text-align:center;text-decoration:none;cursor:pointer;
   transition:.2s ease;
 }
-.btn:hover,button:hover{
-  color:var(--navy);
-  background:var(--gold-light);
-  transform:translateY(-2px);
-}
-.secondary{
-  color:var(--navy);
-  background:transparent;
-  border-color:#bca477;
-}
+.btn:hover,button:hover{color:var(--navy);background:var(--gold-light);transform:translateY(-2px)}
+.secondary{color:var(--navy);background:transparent;border-color:#bca477}
 button:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .progress-wrap{margin:22px 0 28px}
-.progress-info{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  color:#8b795b;
-  font:10px Arial,sans-serif;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-.progress{
-  height:7px;
-  margin-top:10px;
-  overflow:hidden;
-  background:#e9e3d8;
-  border-radius:20px;
-}
-.progress-fill{
-  height:100%;
-  background:linear-gradient(90deg,#9c7945,#e2c58d);
-  border-radius:20px;
-  transition:width .3s;
-}
-.question{
-  padding:18px 0;
-  border-bottom:1px solid #e8e2d7;
-}
-.question b{
-  display:block;
-  margin-bottom:12px;
-  color:#263b54;
-  font-size:17px;
-  line-height:1.5;
-}
+.progress-info{display:flex;justify-content:space-between;gap:10px;color:#8b795b;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.progress{height:7px;margin-top:10px;overflow:hidden;background:#e9e3d8;border-radius:20px}
+.progress-fill{height:100%;background:linear-gradient(90deg,#9c7945,#e2c58d);border-radius:20px;transition:width .3s}
+.question{padding:18px 0;border-bottom:1px solid #e8e2d7}
+.question b{display:block;margin-bottom:12px;color:#263b54;font-size:16px;line-height:1.6}
 .option{
-  display:block;
-  width:100%;
-  padding:15px 17px;
-  margin:9px 0;
-  color:#27374b;
-  background:#f4f1ea;
-  border:1px solid #e4ded1;
-  border-radius:4px;
-  font:14px/1.55 Arial,sans-serif;
-  letter-spacing:0;
-  text-align:left;
+  display:block;width:100%;padding:14px 16px;margin:9px 0;
+  color:#27374b;background:#f4f1ea;border:1px solid #e4ded1;
+  border-radius:4px;font:13px/1.6 'Manrope',Arial,sans-serif;
+  letter-spacing:0;text-align:left;
 }
 .option:hover{color:var(--navy);background:#eee5d4;border-color:var(--gold)}
-.option.selected{
-  color:var(--navy);
-  background:#e8dfce;
-  border-color:var(--gold);
-  box-shadow:inset 3px 0 var(--gold);
-}
-.fact{
-  padding:18px 20px;
-  margin:22px 0;
-  color:#34475c;
-  background:#edf1f3;
-  border-left:3px solid var(--blue);
-  line-height:1.8;
-}
-.hint{
-  padding:20px;
-  margin-top:20px;
-  color:#463b29;
-  background:#f4eddf;
-  border-left:3px solid var(--gold);
-  line-height:1.8;
-}
+.option.selected{color:var(--navy);background:#e8dfce;border-color:var(--gold);box-shadow:inset 3px 0 var(--gold)}
+.fact{padding:18px 20px;margin:22px 0;color:#34475c;background:#edf1f3;border-left:3px solid var(--blue);line-height:1.8}
+.hint{padding:20px;margin-top:20px;color:#463b29;background:#f4eddf;border-left:3px solid var(--gold);line-height:1.8}
 .letter{
-  padding:12px 0;
-  color:#9b7740;
-  font-size:45px;
-  font-weight:bold;
-  letter-spacing:8px;
-  text-align:center;
+  padding:12px 0;color:#9b7740;font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:60px;font-weight:700;letter-spacing:8px;text-align:center;
 }
 input{
-  width:100%;
-  padding:16px;
-  margin:12px 0;
-  color:var(--navy);
-  background:white;
-  border:1px solid #d8cbb5;
-  border-radius:3px;
-  font:17px Arial,sans-serif;
+  width:100%;padding:16px;margin:12px 0;color:var(--navy);
+  background:white;border:1px solid #d8cbb5;border-radius:3px;
+  font:16px 'Manrope',Arial,sans-serif;
 }
 input:focus{outline:2px solid #c9a76a55;border-color:var(--gold)}
-.scrambled{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:9px;
-  margin:24px 0;
-}
+.scrambled{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:24px 0}
 .scrambled span{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:43px;height:49px;
-  color:#f8f0df;
-  background:linear-gradient(145deg,#263f5b,#101b2c);
-  border:1px solid var(--gold);
-  border-radius:4px;
-  font-size:24px;
+  display:flex;align-items:center;justify-content:center;width:43px;height:49px;
+  color:#f8f0df;background:linear-gradient(145deg,#263f5b,#101b2c);
+  border:1px solid var(--gold);border-radius:4px;font-size:22px;
   box-shadow:0 4px 10px #0002;
 }
-.bonus{
-  padding:18px 20px;
-  margin:15px 0;
-  background:#f4eddf;
-  border-left:3px solid var(--gold);
-}
+.bonus{padding:18px 20px;margin:15px 0;background:#f4eddf;border-left:3px solid var(--gold)}
 .bonus h3{margin:8px 0}
 footer{
-  padding:32px 18px;
-  color:#c6b99f;
+  position:relative;z-index:1;padding:32px 18px;color:#c6b99f;
   border-top:1px solid rgba(201,167,106,.3);
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  text-align:center;
+  font-size:10px;letter-spacing:2px;text-align:center;
 }
 @media(max-width:560px){
   header{min-height:270px}
@@ -362,16 +173,15 @@ footer{
 
 <body>
 <header>
+  <div class="header-mark"><span>✳</span></div>
   <div class="eyebrow">Інтерактивний шкільний квест</div>
-  <h1>Голоси України</h1>
+  <h1>Голоси<br>України</h1>
   <p>ПАМ'ЯТЬ · ЄДНІСТЬ · НЕЗЛАМНІСТЬ</p>
 </header>
 
 <main id="app"></main>
 
-<footer>
-  СЛАВА УКРАЇНІ · СЛАВА ЗБРОЙНИМ СИЛАМ УКРАЇНИ
-</footer>
+<footer>СЛАВА УКРАЇНІ · СЛАВА ЗБРОЙНИМ СИЛАМ УКРАЇНИ</footer>
 
 <script>
 const stages = [
@@ -573,12 +383,8 @@ function shuffle(a){
 }
 function progressMarkup(n){
   return `<div class="progress-wrap">
-    <div class="progress-info">
-      <span>Твій шлях</span><span>Етап ${n} / 11</span>
-    </div>
-    <div class="progress">
-      <div class="progress-fill" style="width:${n/11*100}%"></div>
-    </div>
+    <div class="progress-info"><span>Твій шлях</span><span>Етап ${n} / 11</span></div>
+    <div class="progress"><div class="progress-fill" style="width:${n/11*100}%"></div></div>
   </div>`;
 }
 
@@ -593,26 +399,22 @@ function home(){
       Це не просто квест. Це мандрівка крізь історію, людей і події,
       що нагадують: сила України народжується з пам'яті, гідності та єдності.
     </p>
-
     <div class="tiles">
       <div class="tile"><strong>11</strong><span>етапів, які потрібно пройти послідовно</span></div>
       <div class="tile"><strong>11</strong><span>літер для фінальної загадки</span></div>
       <div class="tile"><strong>+2</strong><span>бонусні бали у фіналі квесту</span></div>
     </div>
-
     <div class="mission">
       <b>Твоя місія</b>
       <p>Скануй QR-коди один за одним, знайомся з матеріалами,
       відповідай на запитання та збирай літери. Кожна правильна
       відповідь відкриває наступну підказку.</p>
     </div>
-
     ${count?`
       <div class="progress-wrap">
         <div class="progress-info"><span>Твій прогрес</span><span>${count} / 11</span></div>
-        <div class="progress"><div class="progress-fill" style="width="${count/11*100}%"></div></div>
+        <div class="progress"><div class="progress-fill" style="width:${count/11*100}%"></div></div>
       </div>`:""}
-
     <div style="margin-top:24px">
       <a class="btn" href="?qr=1">Почати подорож →</a>
       <button class="secondary" onclick="resetProgress()">Скинути прогрес</button>
@@ -625,14 +427,11 @@ function renderStage(n){
   const s=stages[n-1];
   if(!s){home();return}
 
-  // Перевіряємо, чи пройдені ВСІ попередні етапи.
   const c=completed();
-  const previousDone=Array.from({length:n-1},(_,i)=>i+1)
-    .every(k=>c.includes(k));
+  const previousDone=Array.from({length:n-1},(_,i)=>i+1).every(k=>c.includes(k));
 
   if(!previousDone){
-    const firstMissing=Array.from({length:n-1},(_,i)=>i+1)
-      .find(k=>!c.includes(k)) || 1;
+    const firstMissing=Array.from({length:n-1},(_,i)=>i+1).find(k=>!c.includes(k))||1;
     app.innerHTML=`
       <section class="card">
         <div class="kicker">Доступ поки закритий</div>
@@ -668,13 +467,10 @@ function renderStage(n){
   const qbox=document.getElementById("questions");
 
   s.questions.forEach((q,i)=>{
-    const choices=shuffle(q[1].map((text,j)=>({
-      text,correct:j===q[2]
-    })));
+    const choices=shuffle(q[1].map((text,j)=>({text,correct:j===q[2]})));
     let html=`<div class="question"><b>${i+1}. ${q[0]}</b>`;
     choices.forEach((choice,j)=>{
-      html+=`<button type="button" class="option"
-        data-q="${i}" data-right="${choice.correct}">
+      html+=`<button type="button" class="option" data-q="${i}" data-right="${choice.correct}">
         ${String.fromCharCode(65+j)}. ${choice.text}
       </button>`;
     });
@@ -686,8 +482,7 @@ function renderStage(n){
     b.onclick=()=>{
       const i=b.dataset.q;
       answers[i]=b.dataset.right==="true";
-      qbox.querySelectorAll(`[data-q="${i}"]`)
-        .forEach(x=>x.classList.remove("selected"));
+      qbox.querySelectorAll(`[data-q="${i}"]`).forEach(x=>x.classList.remove("selected"));
       b.classList.add("selected");
     };
   });
@@ -726,7 +521,6 @@ function finalPage(){
     return;
   }
 
-  // Перемішуємо літери окремо для фінального завдання.
   const letters=shuffle(Array.from("СИЛАУКРАЇНИ"));
   const tiles=letters.map(letter=>`<span>${letter}</span>`).join("");
 
@@ -736,9 +530,7 @@ function finalPage(){
     <h2>Усі частини однієї історії</h2>
     <p>Ти зібрав(ла) всі одинадцять літер. Але вони загубили свій порядок!</p>
     <p>Перестав їх подумки та склади головну фразу квесту.</p>
-
     <div class="scrambled">${tiles}</div>
-
     <p class="small" style="text-align:center">Введи свою відповідь нижче</p>
     <input id="finalAnswer" placeholder="Твоя фінальна фраза" autocomplete="off">
     <button type="button" onclick="checkFinal()">Перевірити відповідь</button>
@@ -757,19 +549,16 @@ function checkFinal(){
       <h2>Вітаємо! Квест завершено!</h2>
       <div class="ornament">СИЛА УКРАЇНИ</div>
       <p>Ти успішно пройшов(ла) всі 11 етапів квесту «Голоси України»!</p>
-
       <div class="bonus">
         <div class="small">Бонус від учителя української мови</div>
         <h3>+1 бал</h3>
         <p>До контрольної роботи з української мови!</p>
       </div>
-
       <div class="bonus">
         <div class="small">Бонус від учителя історії</div>
         <h3>+1 бал</h3>
         <p>З історії України!</p>
       </div>
-
       <div class="ornament">ДЯКУЄМО ЗА УЧАСТЬ</div>
       <p>Пам’ятаймо про тих, хто захищає Україну.</p>
       <h3>Слава Збройним Силам України!</h3>
