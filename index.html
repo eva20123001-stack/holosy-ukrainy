@@ -3,28 +3,28 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Голоси України</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f2f5fa;color:#17233b}
-header{background:linear-gradient(135deg,#174b91,#2468b7);color:white;text-align:center;padding:32px 16px}
-header h1{font-size:34px;margin:0 0 8px}
-header p{margin:0;font-size:16px}
-main{max-width:720px;margin:22px auto;padding:0 14px}
-.card{background:white;border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 5px 20px #152b4a12}
+body{margin:0;background:#f1f5fa;color:#17243b;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,#123c78,#286bb5);color:white;text-align:center;padding:34px 16px}
+header h1{font-size:34px;margin:0 0 9px}
+main{max-width:740px;margin:22px auto;padding:0 14px}
+.card{background:white;border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 5px 22px #152b4a12}
 h2{color:#174b91;margin-top:0}
-h3{margin-bottom:8px}
-button,.button{display:inline-block;border:0;border-radius:12px;padding:13px 18px;background:#174b91;color:white;font-size:16px;font-weight:bold;text-decoration:none;cursor:pointer;margin:5px 3px}
+h3{color:#244b79}
+p{line-height:1.6}
+.small{font-size:13px;color:#68788d}
+button,.btn{display:inline-block;border:0;border-radius:11px;padding:13px 18px;background:#174b91;color:white;font-size:16px;font-weight:bold;text-decoration:none;cursor:pointer;margin:5px 3px}
 button:disabled{background:#9ba9ba}
-a{color:#1759a3}
+.option{display:block;width:100%;text-align:left;background:#edf3fb;color:#17243b;font-weight:normal;margin:9px 0}
+.option.selected{background:#d3e5fb;outline:2px solid #286bb5}
 .question{padding:14px 0;border-bottom:1px solid #e4e9f0}
-.option{display:block;width:100%;text-align:left;background:#edf3fb;color:#17233b;font-weight:normal;margin:8px 0}
-.option.selected{background:#c9ddf8;outline:2px solid #2866ad}
-.small{font-size:13px;color:#64748b}
-.hint{background:#fff7df;padding:14px;border-radius:12px;margin-top:16px}
-.letter{font-size:34px;font-weight:bold;color:#174b91;letter-spacing:8px}
-textarea,input{width:100%;padding:12px;border:1px solid #bbc8d8;border-radius:10px;font-size:16px;margin:8px 0}
+.hint{background:#fff5d9;padding:15px;border-radius:12px;margin-top:16px}
+.fact{background:#eef5fc;border-left:4px solid #286bb5;padding:14px;margin:13px 0;border-radius:8px;line-height:1.65}
+.letter{font-size:38px;font-weight:bold;letter-spacing:8px;color:#174b91}
+input{width:100%;padding:13px;border:1px solid #bbc8d8;border-radius:10px;font-size:17px;margin:10px 0}
 footer{text-align:center;padding:25px;color:#64748b}
 </style>
 </head>
@@ -37,22 +37,20 @@ footer{text-align:center;padding:25px;color:#64748b}
 <footer>Слава Україні! Слава Збройним Силам України! 💙💛</footer>
 
 <script>
-const stages = [
+const stages=[
 {
-title:"Відео про Україну та її захисників",
-type:"video",
-url:"https://youtube.com/watch?v=c7o1kmGWYNc&feature=shared",
-letter:"Н",
+title:"Голоси України",
+type:"video",url:"https://youtube.com/watch?v=c7o1kmGWYNc&feature=shared",
+letter:"С",
 questions:[
-{q:"Якій темі присвячений цей етап квесту?",a:["Збройним Силам України","Історії спорту","Українській кухні"],correct:0},
-{q:"Чому важливо пам’ятати про захисників України?",a:["Щоб дякувати за їхню службу та мужність","Щоб вивчати погоду","Щоб планувати подорожі"],correct:0}
+{q:"Яка ідея найкраще об'єднує тему цього квесту?",a:["Особиста перемога важливіша за спільну мету","Відповідальність і підтримка мають значення для всієї країни","Історія не впливає на сучасність"],correct:1},
+{q:"Що найкраще передає вдячність людям, які захищають державу?",a:["Увага, повага та конкретна підтримка","Лише святкові привітання без зацікавлення","Забування про їхню службу"],correct:0}
 ],
 hint:"Щоб піднятися вище, не завжди потрібні крила. Наступний крок чекає там, де поверхи зустрічаються."
 },
 {
 title:"Від козацької слави до сучасного війська",
-type:"text",
-letter:"А",
+type:"text",letter:"И",
 content:`Українське військо має глибоке історичне коріння. Ще задовго до створення сучасних Збройних Сил України наші предки об’єднувалися, щоб захищати рідну землю, свої домівки та право бути вільними.
 
 Особливе місце в історії України посідає козацтво. Козаки були не лише вправними воїнами, а й людьми, для яких свобода, честь і побратимство мали велике значення. Вони жили за власними звичаями, мали військову організацію та обирали керівників.
@@ -66,59 +64,54 @@ content:`Українське військо має глибоке істори�
 Історія українського війська вчить нас важливої речі: сила не лише в мужності окремої людини, а й у довірі, відповідальності та єдності всього народу.`,
 fact:"Запорозька Січ мала особливу систему самоврядування. Важливі питання козаки вирішували на загальних радах.",
 questions:[
-{q:"Яке місце стало центром козацького життя?",a:["Запорозька Січ","Київська фортеця","Львівська ратуша"],correct:0},
-{q:"Як козаки вирішували важливі питання?",a:["На загальних радах","За допомогою жеребкування щодня","Лише одноосібно"],correct:0}
+{q:"Чому Запорозька Січ була важливою для козацького життя?",a:["Там ухвалювали спільні рішення та формували військові традиції","Вона була лише місцем торгівлі","Там навчали виключно іноземних мов"],correct:0},
+{q:"Яка риса найбільше пов'язує козацькі традиції із сучасним військом у тексті?",a:["Прагнення до особистої слави","Відмова від спільних рішень","Взаємопідтримка та відповідальність"],correct:2}
 ],
 hint:"Тут мовчать сторінки, але говорять цілі покоління. Знайди місце, де живуть тисячі історій."
 },
 {
 title:"Відео про українських захисників",
-type:"video",
-url:"https://youtu.be/b8ssbp3IjVc?si=LzyJuRuue3GOlt0W",
-letter:"С",
+type:"video",url:"https://youtu.be/b8ssbp3IjVc?si=LzyJuRuue3GOlt0W",
+letter:"Л",
 questions:[
-{q:"Яка головна тема цього матеріалу?",a:["Українські захисники та ЗСУ","Історія автомобілів","Подорожі світом"],correct:0},
-{q:"Яке слово найкраще описує спільну підтримку військових?",a:["Єдність","Байдужість","Суперництво"],correct:0}
+{q:"Що допомагає глядачеві краще зрозуміти головну думку відео?",a:["Лише тривалість ролика","Уважність до його образів, слів і послідовності подій","Кількість переглядів"],correct:1},
+{q:"Який висновок відповідає темі підтримки українських захисників?",a:["Внесок кожної людини в підтримку може мати значення","Допомога потрібна лише під час свят","Підтримка не має значення для суспільства"],correct:0}
 ],
 hint:"Після довгих пошуків кожному потрібне відновлення сил. Знайди місце, де школа збирається заради перерви."
 },
 {
 title:"Історія про Святого Миколая та військових",
-type:"article",
-url:"https://thepage.ua/ua/news/vijskovi-opublikuvali-zvorushlivij-rolik-do-dnya-zsu-ta-svyatogo-mikolaya",
-letter:"У",
+type:"article",url:"https://thepage.ua/ua/news/vijskovi-opublikuvali-zvorushlivij-rolik-do-dnya-zsu-ta-svyatogo-mikolaya",
+letter:"А",
 questions:[
-{q:"Яке свято згадується в матеріалі разом із Днем ЗСУ?",a:["День Святого Миколая","День знань","День Конституції"],correct:0},
-{q:"Який настрій має передавати такий святковий ролик?",a:["Підтримку та святкове тепло","Байдужість","Страх перед святами"],correct:0}
+{q:"Чому поєднання образу Святого Миколая з темою військової служби є символічним?",a:["Воно пов'язує святкову атмосферу з увагою та вдячністю військовим","Воно пояснює історію виникнення армії","Воно порівнює військову службу зі змаганнями"],correct:0},
+{q:"Яку роль може виконувати святкове відео для військових?",a:["Замінювати їхню щоденну службу","Нагадувати їм про підтримку та зв'язок із суспільством","Повідомляти про результати спортивних змагань"],correct:1}
 ],
 hint:"Тут перевіряють не знання з підручників, а витривалість, спритність і командний дух."
 },
 {
 title:"Вікторина до Дня Збройних Сил України",
-type:"game",
-url:"https://wordwall.net/resource/64985160/вікторина-до-дня-збройних-сил-україни",
-letter:"Л",
+type:"game",url:"https://wordwall.net/resource/64985160/вікторина-до-дня-збройних-сил-україни",
+letter:"У",
 questions:[
-{q:"Як розшифровується абревіатура ЗСУ?",a:["Збройні Сили України","Загальна Служба України","Захисна Система Управління"],correct:0},
-{q:"Що означає патріотизм?",a:["Любов і відданість Батьківщині","Байдужість до своєї країни","Захоплення лише подорожами"],correct:0}
+{q:"Що найточніше характеризує Збройні Сили України?",a:["Організація для проведення спортивних заходів","Система державних культурних установ","Військове формування, призначене для оборони держави"],correct:2},
+{q:"Яка з наведених якостей найбільше сприяє злагодженій роботі військового колективу?",a:["Взаємна довіра та відповідальність","Прагнення діяти лише самостійно","Байдужість до спільного результату"],correct:0}
 ],
 hint:"Тут голоси звучать голосніше, а звичайні зустрічі перетворюються на події."
 },
 {
 title:"Відео до Дня Збройних Сил України",
-type:"video",
-url:"https://youtu.be/HrxoTKSjvJw?si=MXxlnXEcfnt_7Or9",
-letter:"О",
+type:"video",url:"https://youtu.be/HrxoTKSjvJw?si=MXxlnXEcfnt_7Or9",
+letter:"К",
 questions:[
-{q:"Коли в Україні відзначають День Збройних Сил України?",a:["6 грудня","24 серпня","1 вересня"],correct:0},
-{q:"Кому присвячене це свято?",a:["Військовослужбовцям ЗСУ","Лише спортсменам","Працівникам транспорту"],correct:0}
+{q:"Яка дата пов'язана з офіційним святкуванням Дня Збройних Сил України?",a:["14 жовтня","6 грудня","24 серпня"],correct:1},
+{q:"Чому День Збройних Сил України має державне значення?",a:["Він присвячений історії українського театру","Він відзначає початок навчального року","Він вшановує військо, яке захищає незалежність і територіальну цілісність України"],correct:2}
 ],
 hint:"Минуле не зникає без сліду. Шукай там, де пам’ять школи зберігає важливі події."
 },
 {
 title:"Історія Дня Збройних Сил України",
-type:"text",
-letter:"И",
+type:"text",letter:"Р",
 content:`День Збройних Сил України щороку відзначають 6 грудня. Це свято присвячене всім військовослужбовцям, які захищають незалежність, суверенітет і територіальну цілісність нашої держави.
 
 Дата свята обрана невипадково. Саме 6 грудня 1991 року Верховна Рада України ухвалила Закон «Про Збройні Сили України». А вже у 1993 році було офіційно встановлено День Збройних Сил України.
@@ -132,78 +125,98 @@ content:`День Збройних Сил України щороку відзн
 Слава Збройним Силам України! Слава Україні!`,
 fact:"6 грудня 1991 року Верховна Рада України ухвалила Закон «Про Збройні Сили України».",
 questions:[
-{q:"У якому році Верховна Рада ухвалила Закон «Про Збройні Сили України»?",a:["1991","1993","2001"],correct:0},
-{q:"У якому році офіційно встановили День Збройних Сил України?",a:["1993","1991","2005"],correct:0}
+{q:"Яка подія стала підставою для вибору 6 грудня як дати свята?",a:["Ухвалення Закону «Про Збройні Сили України»","Проголошення незалежності України","Створення Запорозької Січі"],correct:0},
+{q:"Яке твердження правильно розрізняє дві дати з історії свята?",a:["Обидві події відбулися у 1991 році","Закон ухвалили у 1991 році, а свято встановили у 1993 році","Закон ухвалили у 1993 році, а свято встановили у 1991 році"],correct:1}
 ],
 hint:"Те, без чого не може обійтися жоден мандрівник, чекає на тебе там, де можна втамувати спрагу."
 },
 {
 title:"Вікторина про Збройні Сили України",
-type:"game",
-url:"https://naurok.com.ua/test/viktorina-do-dnya-zbroynih-sil-ukra-ni-2636445.html",
-letter:"Д",
+type:"game",url:"https://naurok.com.ua/test/viktorina-do-dnya-zbroynih-sil-ukra-ni-2636445.html",
+letter:"А",
 questions:[
-{q:"Хто такий військовий капелан?",a:["Священнослужитель, який підтримує військових","Військовий кухар","Військовий водій"],correct:0},
-{q:"Що таке шеврон?",a:["Нашивка на військовій формі","Вид військового транспорту","Назва військового звання"],correct:0}
+{q:"Яка основна роль військового капелана?",a:["Організація військових перевезень","Духовна та моральна підтримка військовослужбовців","Керування військовою технікою"],correct:1},
+{q:"Для чого на військовій формі використовують шеврони?",a:["Для позначення належності до певного підрозділу чи формування","Для зберігання особистих документів","Для визначення погодних умов"],correct:0}
 ],
 hint:"Вони не відчиняють дверей, але відкривають погляд на світ. Знайди наступну підказку поруч із ними."
 },
 {
 title:"Відео про підтримку українських захисників",
-type:"video",
-url:"https://vt.tiktok.com/ZSs2FmnBH",
-letter:"А",
+type:"video",url:"https://vt.tiktok.com/ZSs2FmnBH",
+letter:"Ї",
 questions:[
-{q:"Яка тема об’єднує цей етап із попередніми?",a:["Підтримка та вдячність захисникам України","Історія моди","Кулінарія"],correct:0},
-{q:"Яке ставлення важливо виявляти до військових?",a:["Повага та вдячність","Байдужість","Насмішки"],correct:0}
+{q:"Чому важливо не обмежувати вдячність військовим лише одним святковим днем?",a:["Тому що повага й підтримка важливі протягом усього року","Тому що свята не мають значення","Тому що вдячність потрібна лише в соціальних мережах"],correct:0},
+{q:"Який підхід найкраще відповідає ідеї суспільної підтримки?",a:["Ігнорувати потреби інших","Покладати всю відповідальність лише на одну людину","Долучатися до корисних справ у межах власних можливостей"],correct:2}
 ],
 hint:"Кожна подорож має останню сторінку. Повернись туди, звідки починається шлях, і знайди його завершення."
 },
 {
-title:"Фінальний етап",
-type:"video",
-url:"https://youtu.be/xsqLAbHtnao?si=CygiQYQRuUbLMmR5",
-letter:"Р",
+title:"Українці, які випередили свій час",
+type:"text",letter:"Н",
+content:`ІВАН ПУЛЮЙ
+
+Іван Пулюй — видатний український фізик та винахідник. Він досліджував невидимі промені, які згодом отримали назву рентгенівських, і зробив одні з найякісніших ранніх знімків людського скелета.
+
+Цікавий факт: Пулюй створив вакуумну лампу, яка випромінювала ці промені. Його дослідження та знімки з'явилися ще до того, як Вільгельм Рентген опублікував своє відоме повідомлення про X-промені. Внесок Пулюя у розвиток рентгенівських досліджень був надзвичайно вагомим.
+
+ДМИТРО ЯВОРНИЦЬКИЙ
+
+Дмитро Яворницький — видатний історик, археолог та дослідник історії запорозького козацтва. Він присвятив життя збиранню старовинних речей, документів, пісень і переказів, пов'язаних із козацькою добою.
+
+Цікавий факт: Яворницький зібрав велику колекцію козацьких старожитностей і передав її для збереження та вивчення музейній установі в Катеринославі, нині Дніпрі. Завдяки його праці багато свідчень про життя козаків збереглися для наступних поколінь.
+
+Обидва вчені зробили важливий внесок у науку та збереження української культурної спадщини.`,
 questions:[
-{q:"Чому ми присвятили цей квест?",a:["Дню Збройних Сил України","Дню спорту","Дню книги"],correct:0},
-{q:"Що є важливою силою українського народу?",a:["Єдність","Байдужість","Роз'єднаність"],correct:0}
+{q:"Який саме внесок Івана Пулюя пов'язаний із ранніми рентгенівськими дослідженнями?",a:["Створення першого українського радіоприймача","Дослідження вакуумних ламп і отримання якісних рентгенівських знімків","Відкриття електричного струму"],correct:1},
+{q:"Чому діяльність Дмитра Яворницького важлива для сучасних дослідників?",a:["Він створив першу українську газету","Він винайшов новий спосіб друку","Він збирав і зберігав матеріали про історію запорозького козацтва"],correct:2}
 ],
-hint:"Вітаємо! Ти пройшов(ла) всі 10 етапів!"
+hint:"Ти вже майже на фініші. Останній етап чекає там, де починається завершення нашої подорожі!"
+},
+{
+title:"Фінальний етап",
+type:"video",url:"https://youtu.be/xsqLAbHtnao?si=CygiQYQRuUbLMmR5",
+letter:"И",
+questions:[
+{q:"Яке спільне послання найкраще підсумовує весь квест?",a:["Історія та сучасність України пов'язані пам'яттю, відповідальністю і єдністю","Минуле не має значення для сьогодення","Захист країни залежить лише від однієї людини"],correct:0},
+{q:"Що потрібно зробити після отримання всіх одинадцяти літер?",a:["Вибрати будь-яке слово","Скласти зібрані літери у фінальну фразу","Повернутися до першого етапу"],correct:1}
+],
+hint:"Вітаємо! Ти пройшов(ла) всі 11 етапів!"
 }
 ];
 
 const app=document.getElementById("app");
 const params=new URLSearchParams(location.search);
 const number=Number(params.get("qr")||0);
-const completed=()=>JSON.parse(localStorage.getItem("questCompleted")||"[]");
-const save=(n)=>{let c=completed();if(!c.includes(n))c.push(n);localStorage.setItem("questCompleted",JSON.stringify(c));};
+const KEY="holosyUkraine11Progress";
+function completed(){return JSON.parse(localStorage.getItem(KEY)||"[]")}
+function save(n){let c=completed();if(!c.includes(n))c.push(n);localStorage.setItem(KEY,JSON.stringify(c))}
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
-function renderHome(){
+function home(){
 app.innerHTML=`<section class="card">
 <h2>Вітаємо у квесті!</h2>
-<p>На тебе чекають 10 етапів, цікаві матеріали та запитання про історію й сучасність Збройних Сил України.</p>
-<p>Скануй QR-коди, проходь завдання та збирай літери. Наприкінці на тебе чекатиме фінальна загадка!</p>
-<p><b>Важливо:</b> проходь етапи по черзі на тому самому пристрої та в тому самому браузері.</p>
-<a class="button" href="?qr=1">Почати квест</a>
+<p>На тебе чекають 11 етапів, цікаві матеріали, історичні факти та завдання про Україну і її захисників.</p>
+<p>Скануй QR-коди по черзі, уважно виконуй завдання та збирай літери. Наприкінці на тебе чекатиме фінальна фраза і два бонуси від учителів!</p>
+<p><b>Важливо:</b> проходь квест на тому самому пристрої та в тому самому браузері.</p>
+<a class="btn" href="?qr=1">Почати квест</a>
 </section>`;
 }
 
 function renderStage(n){
 const s=stages[n-1];
-if(!s){renderHome();return;}
+if(!s){home();return}
 if(n>1&&!completed().includes(n-1)){
-app.innerHTML=`<section class="card"><h2>Цей етап поки закритий 🔒</h2><p>Спочатку пройди попередній етап квесту.</p><a class="button" href="?qr=${n-1}">До попереднього етапу</a></section>`;
+app.innerHTML=`<section class="card"><h2>🔒 Цей етап поки закритий</h2><p>Спочатку пройди попередній етап квесту.</p><a class="btn" href="?qr=${n-1}">До попереднього етапу</a></section>`;
 return;
 }
-let material="";
-if(s.content)material=`<div style="white-space:pre-line;line-height:1.65">${s.content}</div><div class="hint"><b>Цікавий факт:</b><br>${s.fact}</div>`;
-else material=`<p>Переглянь або виконай матеріал за посиланням:</p><a class="button" href="${s.url}" target="_blank" rel="noopener">Відкрити матеріал ↗</a>`;
+let material=s.content?`<div style="white-space:pre-line;line-height:1.7">${s.content}</div>${s.fact?`<div class="fact"><b>Цікавий факт:</b><br>${s.fact}</div>`:""}`:`<p>Переглянь відео або виконай завдання за посиланням:</p><a class="btn" href="${s.url}" target="_blank" rel="noopener">Відкрити матеріал ↗</a>`;
 app.innerHTML=`<section class="card">
-<p class="small">ЕТАП ${n} ІЗ 10</p><h2>${s.title}</h2>
+<p class="small">ЕТАП ${n} ІЗ 11</p>
+<h2>${s.title}</h2>
 ${material}
 <hr>
 <h3>Перевір свої знання</h3>
-<p class="small">Обери одну правильну відповідь у кожному запитанні.</p>
+<p class="small">У кожному запитанні одна правильна відповідь. Варіанти перемішуються.</p>
 <div id="questions"></div>
 <button id="check">Перевірити відповіді</button>
 <p id="feedback"></p>
@@ -212,49 +225,59 @@ ${material}
 let answers={};
 const qbox=document.getElementById("questions");
 s.questions.forEach((q,i)=>{
+let choices=shuffle(q.a.map((text,j)=>({text,correct:j===q.correct})));
 let html=`<div class="question"><b>${i+1}. ${q.q}</b>`;
-q.a.forEach((a,j)=>{html+=`<button class="option" data-q="${i}" data-a="${j}">${a}</button>`;});
+choices.forEach((c,j)=>{html+=`<button class="option" data-q="${i}" data-c="${j}" data-right="${c.correct}">${String.fromCharCode(65+j)}. ${c.text}</button>`});
 html+="</div>";qbox.innerHTML+=html;
 });
 qbox.querySelectorAll(".option").forEach(b=>b.onclick=()=>{
-let i=b.dataset.q;answers[i]=Number(b.dataset.a);
+let i=b.dataset.q;answers[i]=b.dataset.right==="true";
 qbox.querySelectorAll(`[data-q="${i}"]`).forEach(x=>x.classList.remove("selected"));
 b.classList.add("selected");
 });
 document.getElementById("check").onclick=()=>{
-if(Object.keys(answers).length!==2){document.getElementById("feedback").textContent="Дай відповідь на обидва запитання.";return;}
-let ok=s.questions.every((q,i)=>answers[i]===q.correct);
-if(!ok){document.getElementById("feedback").textContent="Є помилка. Спробуй ще раз! Уважно перечитай матеріал.";return;}
+if(Object.keys(answers).length!==2){document.getElementById("feedback").textContent="Дай відповідь на обидва запитання.";return}
+if(!Object.values(answers).every(Boolean)){
+document.getElementById("feedback").textContent="Не всі відповіді правильні. Спробуй ще раз!";
+return;
+}
 save(n);
-document.getElementById("feedback").textContent="Правильно! Ти отримуєш літеру:";
-document.getElementById("result").innerHTML=`<p class="letter">${s.letter}</p><div class="hint"><b>Підказка до наступного QR-коду:</b><br>${s.hint}</div>${n<10?`<p>Тепер шукай QR-код №${n+1} у школі.</p>`:`<p>Ти зібрав(ла) всі літери! Переходь до фіналу.</p><button onclick="renderFinal()">Фінальне завдання</button>`}`;
+document.getElementById("feedback").textContent="Чудово! Обидві відповіді правильні. Твоя літера:";
+document.getElementById("result").innerHTML=`<p class="letter">${s.letter}</p><div class="hint"><b>Підказка до наступного QR-коду:</b><br>${s.hint}</div>${n<11?`<p>Тепер шукай QR-код №${n+1} у школі.</p>`:`<button onclick="finalPage()">Перейти до фіналу</button>`}`;
 document.getElementById("check").disabled=true;
 };
 }
 
-function renderFinal(){
+function finalPage(){
 if(!stages.every((s,i)=>completed().includes(i+1))){
-app.innerHTML=`<section class="card"><h2>Ще не всі етапи пройдено</h2><p>Збери всі 10 літер, щоб відкрити фінал.</p></section>`;return;
+app.innerHTML=`<section class="card"><h2>Ще не всі етапи пройдено</h2><p>Збери всі 11 літер, щоб відкрити фінал.</p></section>`;return;
 }
 app.innerHTML=`<section class="card">
-<h2>🎉 Фінал квесту!</h2>
-<p>Ти пройшов(ла) всі 10 етапів і зібрав(ла) літери:</p>
-<p class="letter">Н А С У Л О И Р Д А</p>
-<p>Перестав літери та введи фразу, яка символізує силу українців.</p>
-<input id="finalAnswer" placeholder="Введи відповідь">
+<h2>🎉 Фінальне завдання!</h2>
+<p>Ти зібрав(ла) всі одинадцять літер. Склади з них фразу, яка символізує силу нашої держави.</p>
+<p class="letter">С И Л А У К Р А Ї Н И</p>
+<input id="finalAnswer" placeholder="Введи фінальну фразу">
 <button onclick="checkFinal()">Перевірити</button>
 <p id="finalFeedback"></p>
 </section>`;
 }
 function checkFinal(){
 let v=document.getElementById("finalAnswer").value.toUpperCase().replace(/[^А-ЯІЇЄҐ]/g,"");
-if(v==="СИЛАНАРОДУ"){
-app.innerHTML=`<section class="card"><h2>🇺🇦 Вітаємо! Квест завершено!</h2><p class="letter">СИЛА НАРОДУ</p><p>Ти успішно пройшов(ла) всі 10 етапів квесту «Голоси України»!</p><div class="hint"><h3>🎁 Бонус від учителя української мови</h3><p><b>+1 бал до контрольної роботи з української мови!</b></p></div><h3>Дякуємо за участь!</h3><p>Пам’ятаймо про тих, хто захищає Україну. Слава Збройним Силам України!</p></section>`;
+if(v==="СИЛАУКРАЇНИ"){
+app.innerHTML=`<section class="card">
+<h2>🇺🇦 Вітаємо! Квест завершено!</h2>
+<p class="letter">СИЛА УКРАЇНИ</p>
+<p>Ти успішно пройшов(ла) всі 11 етапів квесту «Голоси України»!</p>
+<div class="hint"><h3>🎟️ Бонус від учителя української мови</h3><p><b>+1 бал до контрольної роботи з української мови!</b></p></div>
+<div class="fact"><h3>🎟️ Бонус від учителя історії</h3><p><b>+1 бал з історії України!</b></p></div>
+<h3>Дякуємо за участь!</h3>
+<p>Пам’ятаймо про тих, хто захищає Україну. Слава Збройним Силам України!</p>
+</section>`;
 }else{
 document.getElementById("finalFeedback").textContent="Спробуй ще раз. Уважно перестав усі зібрані літери.";
 }
 }
-if(number>=1&&number<=10)renderStage(number);else renderHome();
+if(number>=1&&number<=11)renderStage(number);else home();
 </script>
 </body>
 </html>
